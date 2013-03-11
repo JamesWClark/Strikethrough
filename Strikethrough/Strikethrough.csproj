@@ -115,6 +115,7 @@
     <Content Include="Assets\MasterPages\Master.Master" />
     <Content Include="Assets\MasterPages\Member.master" />
     <Content Include="Members\Web.config" />
+    <Content Include="Developers\Web.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
