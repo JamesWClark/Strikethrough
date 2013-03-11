@@ -1,0 +1,5 @@
+C:\Git\Strikethrough\Strikethrough\bin\Strikethrough.dll
+C:\Git\Strikethrough\Strikethrough\bin\Strikethrough.pdb
+C:\Git\Strikethrough\Strikethrough\obj\Debug\Strikethrough.csprojResolveAssemblyReference.cache
+C:\Git\Strikethrough\Strikethrough\obj\Debug\Strikethrough.dll
+C:\Git\Strikethrough\Strikethrough\obj\Debug\Strikethrough.pdb

@@ -57,18 +57,74 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Scripts\images\ajax-loader.gif" />
+    <Content Include="Assets\Scripts\images\icons-18-black.png" />
+    <Content Include="Assets\Scripts\images\icons-18-white.png" />
+    <Content Include="Assets\Scripts\images\icons-36-black.png" />
+    <Content Include="Assets\Scripts\images\icons-36-white.png" />
+    <Content Include="Assets\Scripts\jquery-1.9.1.min.js" />
+    <Content Include="Assets\Scripts\jquery.mobile-1.3.0.min.css" />
+    <Content Include="Assets\Scripts\jquery.mobile-1.3.0.min.js" />
+    <Content Include="Assets\Scripts\jquery.mobile.structure-1.3.0.min.css" />
+    <Content Include="Assets\Scripts\jquery.mobile.theme-1.3.0.min.css" />
+    <Content Include="Assets\Scripts\sketch.min.js" />
+    <Content Include="Default.aspx" />
+    <Content Include="Login.aspx" />
+    <Content Include="Members\Default.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\MasterPages\Master.Master.cs">
+      <DependentUpon>Master.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Assets\MasterPages\Master.Master.designer.cs">
+      <DependentUpon>Master.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Assets\MasterPages\Member.master.cs">
+      <DependentUpon>Member.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Assets\MasterPages\Member.master.designer.cs">
+      <DependentUpon>Member.master</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Members\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Members\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\MasterPages\Master.Master" />
+    <Content Include="Assets\MasterPages\Member.master" />
+    <Content Include="Members\Web.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets\Stylesheets\" />
+    <Folder Include="Assets\WebServices\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
