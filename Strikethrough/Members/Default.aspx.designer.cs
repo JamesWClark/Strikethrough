@@ -31,12 +31,30 @@ namespace Strikethrough.Members {
         protected global::System.Web.UI.WebControls.DropDownList ddlOpen;
         
         /// <summary>
-        /// dsCanvas control.
+        /// lblStub control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource dsCanvas;
+        protected global::System.Web.UI.WebControls.Label lblStub;
+        
+        /// <summary>
+        /// dsCanvasId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource dsCanvasId;
+        
+        /// <summary>
+        /// hiddenUserId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hiddenUserId;
     }
 }
