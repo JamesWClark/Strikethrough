@@ -12,7 +12,7 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="form1" runat="server" data-ajax="false">
     <div>
         <div data-theme="a" data-role="header">
             <h3>

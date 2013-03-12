@@ -39,6 +39,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -68,9 +70,18 @@
     <Content Include="Assets\Scripts\jquery.mobile.structure-1.3.0.min.css" />
     <Content Include="Assets\Scripts\jquery.mobile.theme-1.3.0.min.css" />
     <Content Include="Assets\Scripts\sketch.min.js" />
+    <Content Include="Assets\Stylesheets\whiteboard.css" />
+    <Content Include="Assets\WebServices\DataHandler.asmx" />
     <Content Include="Default.aspx" />
+    <Content Include="Global.asax" />
     <Content Include="Login.aspx" />
     <Content Include="Members\Default.aspx" />
+    <Content Include="Members\Whiteboard.aspx" />
+    <Content Include="Signup.aspx" />
+    <Content Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </Content>
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -88,12 +99,26 @@
     <Compile Include="Assets\MasterPages\Member.master.designer.cs">
       <DependentUpon>Member.master</DependentUpon>
     </Compile>
+    <Compile Include="Assets\MasterPages\Whiteboard.master.cs">
+      <DependentUpon>Whiteboard.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Assets\MasterPages\Whiteboard.master.designer.cs">
+      <DependentUpon>Whiteboard.master</DependentUpon>
+    </Compile>
+    <Compile Include="Assets\WebServices\DataHandler.asmx.cs">
+      <DependentUpon>DataHandler.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -109,13 +134,34 @@
     <Compile Include="Members\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Members\Whiteboard.aspx.cs">
+      <DependentUpon>Whiteboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Members\Whiteboard.aspx.designer.cs">
+      <DependentUpon>Whiteboard.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Signup.aspx.cs">
+      <DependentUpon>Signup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Signup.aspx.designer.cs">
+      <DependentUpon>Signup.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\MasterPages\Master.Master" />
     <Content Include="Assets\MasterPages\Member.master" />
     <Content Include="Members\Web.config" />
     <Content Include="Developers\Web.config" />
+    <Content Include="Assets\MasterPages\Whiteboard.master" />
+    <None Include="Properties\PublishProfiles\a.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -124,8 +170,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Assets\Stylesheets\" />
-    <Folder Include="Assets\WebServices\" />
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

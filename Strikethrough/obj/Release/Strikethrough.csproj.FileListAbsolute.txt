@@ -1,0 +1,5 @@
+C:\Users\JWC\Documents\GitHub\Strikethrough\Strikethrough\bin\Strikethrough.dll
+C:\Users\JWC\Documents\GitHub\Strikethrough\Strikethrough\bin\Strikethrough.pdb
+C:\Users\JWC\Documents\GitHub\Strikethrough\Strikethrough\obj\Release\Strikethrough.csprojResolveAssemblyReference.cache
+C:\Users\JWC\Documents\GitHub\Strikethrough\Strikethrough\obj\Release\Strikethrough.dll
+C:\Users\JWC\Documents\GitHub\Strikethrough\Strikethrough\obj\Release\Strikethrough.pdb
