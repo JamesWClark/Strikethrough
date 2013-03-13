@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<VisualState xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ShowCheckBoxes="false">
+  <TopNode>[0-1002]C:\Users\JWC\Documents\GitHub\Strikethrough\Strikethrough\bin\Strikethrough.dll</TopNode>
+  <SelectedNode>[0-1001]Strikethrough.Developers.NUnit.Test_WebService_DataHandler.IsResultDataTable</SelectedNode>
+  <ExcludeCategories>false</ExcludeCategories>
+  <Nodes>
+    <Node UniqueName="[0-1002]C:\Users\JWC\Documents\GitHub\Strikethrough\Strikethrough\bin\Strikethrough.dll" Expanded="true" />
+    <Node UniqueName="[0-1003]Strikethrough" Expanded="true" />
+    <Node UniqueName="[0-1004]Strikethrough.Developers" Expanded="true" />
+    <Node UniqueName="[0-1005]Strikethrough.Developers.NUnit" Expanded="true" />
+    <Node UniqueName="[0-1000]Strikethrough.Developers.NUnit.Test_WebService_DataHandler" Expanded="true" />
+  </Nodes>
+</VisualState>
