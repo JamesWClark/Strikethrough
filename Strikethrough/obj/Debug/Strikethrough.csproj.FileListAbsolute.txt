@@ -15,3 +15,8 @@ C:\Users\JWC\Documents\GitHub\Strikethrough\Strikethrough\obj\Debug\Strikethroug
 C:\Users\JWC\Documents\GitHub\Strikethrough\Strikethrough\obj\Debug\Strikethrough.csprojResolveAssemblyReference.cache
 C:\Users\JWC\Documents\GitHub\Strikethrough\Strikethrough\bin\nunit.framework.dll
 C:\Users\JWC\Documents\GitHub\Strikethrough\Strikethrough\bin\nunit.framework.xml
+<<<<<<< HEAD
+=======
+C:\Users\jwclark\Documents\GitHub\Strikethrough\Strikethrough\bin\nunit.framework.dll
+C:\Users\jwclark\Documents\GitHub\Strikethrough\Strikethrough\bin\nunit.framework.xml
+>>>>>>> fixed issue with canvas write/save
