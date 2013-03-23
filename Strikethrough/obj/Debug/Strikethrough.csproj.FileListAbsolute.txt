@@ -1,22 +1,7 @@
-C:\Git\Strikethrough\Strikethrough\bin\Strikethrough.dll
-C:\Git\Strikethrough\Strikethrough\bin\Strikethrough.pdb
-C:\Git\Strikethrough\Strikethrough\obj\Debug\Strikethrough.csprojResolveAssemblyReference.cache
-C:\Git\Strikethrough\Strikethrough\obj\Debug\Strikethrough.dll
-C:\Git\Strikethrough\Strikethrough\obj\Debug\Strikethrough.pdb
-C:\Users\jwclark\Documents\GitHub\Strikethrough\Strikethrough\bin\Strikethrough.dll
-C:\Users\jwclark\Documents\GitHub\Strikethrough\Strikethrough\bin\Strikethrough.pdb
-C:\Users\jwclark\Documents\GitHub\Strikethrough\Strikethrough\obj\Debug\Strikethrough.csprojResolveAssemblyReference.cache
-C:\Users\jwclark\Documents\GitHub\Strikethrough\Strikethrough\obj\Debug\Strikethrough.dll
-C:\Users\jwclark\Documents\GitHub\Strikethrough\Strikethrough\obj\Debug\Strikethrough.pdb
 C:\Users\JWC\Documents\GitHub\Strikethrough\Strikethrough\bin\Strikethrough.dll
 C:\Users\JWC\Documents\GitHub\Strikethrough\Strikethrough\bin\Strikethrough.pdb
+C:\Users\JWC\Documents\GitHub\Strikethrough\Strikethrough\bin\nunit.framework.dll
+C:\Users\JWC\Documents\GitHub\Strikethrough\Strikethrough\bin\nunit.framework.xml
 C:\Users\JWC\Documents\GitHub\Strikethrough\Strikethrough\obj\Debug\Strikethrough.dll
 C:\Users\JWC\Documents\GitHub\Strikethrough\Strikethrough\obj\Debug\Strikethrough.pdb
 C:\Users\JWC\Documents\GitHub\Strikethrough\Strikethrough\obj\Debug\Strikethrough.csprojResolveAssemblyReference.cache
-C:\Users\JWC\Documents\GitHub\Strikethrough\Strikethrough\bin\nunit.framework.dll
-C:\Users\JWC\Documents\GitHub\Strikethrough\Strikethrough\bin\nunit.framework.xml
-<<<<<<< HEAD
-=======
-C:\Users\jwclark\Documents\GitHub\Strikethrough\Strikethrough\bin\nunit.framework.dll
-C:\Users\jwclark\Documents\GitHub\Strikethrough\Strikethrough\bin\nunit.framework.xml
->>>>>>> fixed issue with canvas write/save
