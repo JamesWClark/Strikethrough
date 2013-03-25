@@ -14,17 +14,18 @@
     <input type="hidden" id="hiddenCanvasId" runat="server" />
 
     <script type="text/javascript">
+        var z = 0;
+        var canvasHeight = 400;
+        var canvasWidth = 600;
+
         $(function () {
             $('#base-canvas').sketch();
         });
 
-        var canvasHeight = 400;
-        var canvasWidth = 600;
-
         loadCanvas();
 
         function loadCanvas() {
-            var z = 0;
+            
             var canvas = $('#base-canvas')[0];
             var context = canvas.getContext('2d');
 
@@ -34,9 +35,11 @@
                 context.drawImage(this, 0, 0);
             };
             imageObj.src = $("#MainPlaceholder_MemberPlaceholder_WhiteboardPlaceholder_hiddenDataUrl").val();
+        }
 
+        function stackCanvas() {
             z = z + 1;
-            $('#canvas-container').append('<canvas id="layer' + z + '" width="' + canvasWidth + '" height="' + canvasHeight + '" style="z-index: ' + z + ';" ></canvas>\n');
+            $('#canvas-container').append('<canvas id="layer' + z + '" width="300" height="200" style="z-index: ' + z + ';" ></canvas>\n');
             $('#layer' + z + '').sketch();
         }
 
