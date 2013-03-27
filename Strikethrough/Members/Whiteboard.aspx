@@ -14,35 +14,29 @@
     <input type="hidden" id="hiddenCanvasId" runat="server" />
 
     <script type="text/javascript">
-        var z = 0;
+        var z = 1; //used for z-index. seems unnecessary, but i'm retaining this implementation b/c it's possible that later i will be looping multiple layers.
         var canvasHeight = 400;
         var canvasWidth = 600;
 
-        $(function () {
+        if ($("#MainPlaceholder_MemberPlaceholder_WhiteboardPlaceholder_hiddenDataUrl").attr('value')) {
+            var src = $("#MainPlaceholder_MemberPlaceholder_WhiteboardPlaceholder_hiddenDataUrl").val();
+            loadImage(src);
+            $('#canvas-container').html('<canvas id="layer' + z + '" width="' + canvasWidth + '" height="' + canvasHeight + '" style="z-index: ' + z + ';" ></canvas>');
+            $('#layer' + z + '').sketch();
+        }
+        else {
             $('#base-canvas').sketch();
-        });
-
-        loadCanvas();
-
-        function loadCanvas() {
-            
+        }
+        function loadImage(src) {
             var canvas = $('#base-canvas')[0];
             var context = canvas.getContext('2d');
-
             // load image from data url
             var imageObj = new Image();
             imageObj.onload = function () {
                 context.drawImage(this, 0, 0);
             };
-            imageObj.src = $("#MainPlaceholder_MemberPlaceholder_WhiteboardPlaceholder_hiddenDataUrl").val();
+            imageObj.src = src;
         }
-
-        function stackCanvas() {
-            z = z + 1;
-            $('#canvas-container').append('<canvas id="layer' + z + '" width="300" height="200" style="z-index: ' + z + ';" ></canvas>\n');
-            $('#layer' + z + '').sketch();
-        }
-
         //called by whiteboard.aspx.cs code-behind file's button control (onClientClick attribute)
         function setHiddenCanvasDataUrl() {
             saveCanvas();
@@ -51,7 +45,6 @@
             //this id does not exist by inspection until after the master pages are implemented
             $("#MainPlaceholder_MemberPlaceholder_WhiteboardPlaceholder_hiddenDataUrl").val(dataUrl);
         }
-
         //this method flattens the canvas layers into one single canvas image before being sent to the database server as a base 64 image text
         function saveCanvas() {
             var destinationCanvas = document.getElementById('base-canvas');
@@ -65,5 +58,4 @@
             //window.open(destinationCanvas.toDataURL("image/png"), "toDataURL() image", "width=600, height=200");
         }
     </script>
-
 </asp:Content>
