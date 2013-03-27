@@ -1,0 +1,8 @@
+﻿canvas {
+    /* canvas height and width must be set by javascript or by element attribute code */
+    position: absolute;
+    border: solid black 1px;
+    left: 0;
+    top: 0;
+    margin-top:200px;
+}

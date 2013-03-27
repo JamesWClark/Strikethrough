@@ -18,10 +18,5 @@ namespace Strikethrough.Assets.WebServices
     public class SystemNetService : System.Web.Services.WebService
     {
 
-        [WebMethod]
-        public string HelloWorld()
-        {
-            return "Hello World";
-        }
     }
 }

@@ -73,7 +73,9 @@
     <Content Include="Assets\Scripts\sketch.min.js" />
     <Content Include="Assets\Stylesheets\whiteboard.css" />
     <Content Include="Assets\WebServices\DataHandler.asmx" />
+    <Content Include="Assets\WebServices\SystemNetService.asmx" />
     <Content Include="Default.aspx" />
+    <Content Include="Developers\Net.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Login.aspx" />
     <Content Include="Members\Default.aspx" />
@@ -111,12 +113,23 @@
       <DependentUpon>DataHandler.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Assets\WebServices\SystemNetService.asmx.cs">
+      <DependentUpon>SystemNetService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Developers\Net.aspx.cs">
+      <DependentUpon>Net.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Developers\Net.aspx.designer.cs">
+      <DependentUpon>Net.aspx</DependentUpon>
     </Compile>
     <Compile Include="Developers\NUnit\Test-WebService-DataHandler.cs" />
     <Compile Include="Global.asax.cs">
@@ -176,6 +189,9 @@
   </ItemGroup>
   <ItemGroup>
     <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets\Code\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
