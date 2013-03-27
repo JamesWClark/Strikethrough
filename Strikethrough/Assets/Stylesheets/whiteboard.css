@@ -1,8 +1,3 @@
-﻿body {
-}
-#canvas-wrapper {
-    display:normal;
-}
 ﻿canvas {
     /* canvas height and width must be set by javascript or by element attribute code */
     position: absolute;
