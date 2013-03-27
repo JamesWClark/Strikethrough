@@ -17,6 +17,10 @@ namespace Strikethrough.Assets.WebServices
     // [System.Web.Script.Services.ScriptService]
     public class SystemNetService : System.Web.Services.WebService
     {
+        [WebMethod]
+        public void ExecuteNonQuery(string query)
+        {
 
+        }
     }
 }

@@ -39,6 +39,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\..\..\..\Json45r11\Bin\Net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="nunit.framework, Version=2.6.2.12296, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
@@ -60,6 +63,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin\ControlPanel.aspx" />
     <Content Include="Assets\Scripts\images\ajax-loader.gif" />
     <Content Include="Assets\Scripts\images\icons-18-black.png" />
     <Content Include="Assets\Scripts\images\icons-18-white.png" />
@@ -88,6 +92,14 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\ControlPanel.aspx.cs">
+      <DependentUpon>ControlPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ControlPanel.aspx.designer.cs">
+      <DependentUpon>ControlPanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Assets\Code\GeoIP.cs" />
     <Compile Include="Assets\MasterPages\Master.Master.cs">
       <DependentUpon>Master.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -176,6 +188,7 @@
     <Content Include="Members\Web.config" />
     <Content Include="Developers\Web.config" />
     <Content Include="Assets\MasterPages\Whiteboard.master" />
+    <Content Include="Admin\Web.config" />
     <None Include="Properties\PublishProfiles\a.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -191,7 +204,7 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Assets\Code\" />
+    <Folder Include="Admin\Queries\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -14,6 +14,14 @@
         <br />
         <asp:Label ID="Label1" runat="server" Text="[if you are reading this, it didn't work]"></asp:Label>
     
+        <br />
+        <br />
+        Based on the IP address, the following information is determinable from <a href="http://freegeoip.net/">http://freegeoip.net</a><br />
+        <br />
+        Using Json.NET, it is very easy to parse data requested in a format such as <a href="http://freegeoip.net/json/67.52.232.226">http://freegeoip.net/json/67.52.232.226</a><br />
+        <br />
+        <asp:Label ID="Label2" runat="server" Text="[parse data here]"></asp:Label>
+    
     </div>
     </form>
 </body>
