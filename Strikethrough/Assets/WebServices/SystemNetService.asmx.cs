@@ -1,9 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Configuration;
+using System.IO;
+using System.Net;
 using System.Web;
 using System.Web.Services;
-using System.Net;
+using Newtonsoft.Json;
+using NUnit.Framework;
 
 namespace Strikethrough.Assets.WebServices
 {
@@ -17,10 +19,23 @@ namespace Strikethrough.Assets.WebServices
     // [System.Web.Script.Services.ScriptService]
     public class SystemNetService : System.Web.Services.WebService
     {
-        [WebMethod]
-        public void ExecuteNonQuery(string query)
-        {
 
+        [WebMethod]
+        public Code.GeoIP GetGeoIP(string ip)
+        {
+            string url = "http://freegeoip.net/json/" + ip; //System.Web.Configuration.WebConfigurationManager.AppSettings["geo-ip-provider"] + ip;
+
+            WebRequest req = WebRequest.Create(url);
+            //req.Credentials = CredentialCache.DefaultCredentials;
+            WebResponse resp = req.GetResponse();
+
+            Code.GeoIP geo = new Code.GeoIP();
+            using (StreamReader reader = new StreamReader(resp.GetResponseStream()))
+            {
+                string responseFromServer = reader.ReadToEnd();
+                geo = JsonConvert.DeserializeObject<Assets.Code.GeoIP>(responseFromServer);
+            }
+            return geo;
         }
     }
 }

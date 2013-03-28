@@ -143,7 +143,6 @@
     <Compile Include="Developers\Net.aspx.designer.cs">
       <DependentUpon>Net.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Developers\NUnit\Test-WebService-DataHandler.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -205,6 +204,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Admin\Queries\" />
+    <Folder Include="Developers\NUnit\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
