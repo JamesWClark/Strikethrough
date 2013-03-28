@@ -1,44 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!--This file represents the results of running a test suite-->
-<test-results name="C:\Users\JWC\Documents\GitHub\Strikethrough\Strikethrough\bin\Strikethrough.dll" total="7" errors="0" failures="1" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2013-03-27" time="22:50:02">
-  <environment nunit-version="2.6.2.12296" clr-version="2.0.50727.5466" os-version="Microsoft Windows NT 6.1.7601 Service Pack 1" platform="Win32NT" cwd="C:\Program Files (x86)\NUnit 2.6.2\bin" machine-name="JWC-PC" user="JWC" user-domain="JWC-PC" />
+<test-results name="C:\Users\Sammy\Documents\GitHub\Strikethrough\Strikethrough\bin\Strikethrough.dll" total="7" errors="0" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2013-03-27" time="22:09:29">
+  <environment nunit-version="2.6.2.12296" clr-version="2.0.50727.5466" os-version="Microsoft Windows NT 6.1.7601 Service Pack 1" platform="Win32NT" cwd="C:\Program Files (x86)\NUnit 2.6.2\bin" machine-name="SAMMY-THINK" user="Sammy" user-domain="Sammy-THINK" />
   <culture-info current-culture="en-US" current-uiculture="en-US" />
-  <test-suite type="Assembly" name="C:\Users\JWC\Documents\GitHub\Strikethrough\Strikethrough\bin\Strikethrough.dll" executed="True" result="Failure" success="False" time="1.980" asserts="0">
+  <test-suite type="Assembly" name="C:\Users\Sammy\Documents\GitHub\Strikethrough\Strikethrough\bin\Strikethrough.dll" executed="True" result="Success" success="True" time="4.896" asserts="0">
     <results>
-      <test-suite type="Namespace" name="Strikethrough" executed="True" result="Failure" success="False" time="1.953" asserts="0">
+      <test-suite type="Namespace" name="Strikethrough" executed="True" result="Success" success="True" time="4.868" asserts="0">
         <results>
-          <test-suite type="Namespace" name="Assets" executed="True" result="Inconclusive" success="False" time="0.019" asserts="0">
+          <test-suite type="Namespace" name="Developers" executed="True" result="Success" success="True" time="4.868" asserts="0">
             <results>
-              <test-suite type="Namespace" name="WebServices" executed="True" result="Inconclusive" success="False" time="0.019" asserts="0">
+              <test-suite type="Namespace" name="NUnit" executed="True" result="Success" success="True" time="4.867" asserts="0">
                 <results>
-                  <test-suite type="TestFixture" name="SystemNetService" executed="True" result="Inconclusive" success="False" time="0.013" asserts="0" />
-                </results>
-              </test-suite>
-            </results>
-          </test-suite>
-          <test-suite type="Namespace" name="Developers" executed="True" result="Failure" success="False" time="1.926" asserts="0">
-            <results>
-              <test-suite type="Namespace" name="NUnit" executed="True" result="Failure" success="False" time="1.926" asserts="0">
-                <results>
-                  <test-suite type="TestFixture" name="Test_WebService_SystemNetService" executed="True" result="Failure" success="False" time="1.925" asserts="0">
+                  <test-suite type="TestFixture" name="Test_WebService_SystemNetService" executed="True" result="Success" success="True" time="4.862" asserts="0">
                     <results>
-                      <test-case name="Strikethrough.Developers.NUnit.Test_WebService_SystemNetService.IsAreaCode" executed="True" result="Success" success="True" time="1.304" asserts="1" />
-                      <test-case name="Strikethrough.Developers.NUnit.Test_WebService_SystemNetService.IsCity" executed="True" result="Success" success="True" time="0.098" asserts="1" />
-                      <test-case name="Strikethrough.Developers.NUnit.Test_WebService_SystemNetService.IsCountryCode" executed="True" result="Success" success="True" time="0.088" asserts="1" />
-                      <test-case name="Strikethrough.Developers.NUnit.Test_WebService_SystemNetService.IsCountryName" executed="True" result="Success" success="True" time="0.091" asserts="1" />
-                      <test-case name="Strikethrough.Developers.NUnit.Test_WebService_SystemNetService.IsRegionCode" executed="True" result="Success" success="True" time="0.087" asserts="1" />
-                      <test-case name="Strikethrough.Developers.NUnit.Test_WebService_SystemNetService.IsRegionName" executed="True" result="Success" success="True" time="0.102" asserts="1" />
-                      <test-case name="Strikethrough.Developers.NUnit.Test_WebService_SystemNetService.IsZip" executed="True" result="Failure" success="False" time="0.123" asserts="1">
-                        <failure>
-                          <message><![CDATA[  String lengths are both 5. Strings differ at index 4.
-  Expected: "64112"
-  But was:  "64111"
-  ---------------^
-]]></message>
-                          <stack-trace><![CDATA[at Strikethrough.Developers.NUnit.Test_WebService_SystemNetService.IsZip() in c:\Users\JWC\Documents\GitHub\Strikethrough\Strikethrough\Developers\NUnit\Test-WebService-SystemNetService.cs:line 61
-]]></stack-trace>
-                        </failure>
-                      </test-case>
+                      <test-case name="Strikethrough.Developers.NUnit.Test_WebService_SystemNetService.IsAreaCode" executed="True" result="Success" success="True" time="4.291" asserts="1" />
+                      <test-case name="Strikethrough.Developers.NUnit.Test_WebService_SystemNetService.IsCity" executed="True" result="Success" success="True" time="0.072" asserts="1" />
+                      <test-case name="Strikethrough.Developers.NUnit.Test_WebService_SystemNetService.IsCountryCode" executed="True" result="Success" success="True" time="0.085" asserts="1" />
+                      <test-case name="Strikethrough.Developers.NUnit.Test_WebService_SystemNetService.IsCountryName" executed="True" result="Success" success="True" time="0.069" asserts="1" />
+                      <test-case name="Strikethrough.Developers.NUnit.Test_WebService_SystemNetService.IsRegionCode" executed="True" result="Success" success="True" time="0.092" asserts="1" />
+                      <test-case name="Strikethrough.Developers.NUnit.Test_WebService_SystemNetService.IsRegionName" executed="True" result="Success" success="True" time="0.067" asserts="1" />
+                      <test-case name="Strikethrough.Developers.NUnit.Test_WebService_SystemNetService.IsZip" executed="True" result="Success" success="True" time="0.067" asserts="1" />
                     </results>
                   </test-suite>
                 </results>

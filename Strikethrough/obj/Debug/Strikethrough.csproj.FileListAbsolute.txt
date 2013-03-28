@@ -13,3 +13,10 @@ C:\Users\JWC\Documents\GitHub\Strikethrough\Strikethrough\bin\nunit.framework.dl
 C:\Users\JWC\Documents\GitHub\Strikethrough\Strikethrough\bin\nunit.framework.xml
 C:\Users\JWC\Documents\GitHub\Strikethrough\Strikethrough\obj\Debug\Strikethrough.dll
 C:\Users\JWC\Documents\GitHub\Strikethrough\Strikethrough\obj\Debug\Strikethrough.pdb
+C:\Users\Sammy\Documents\GitHub\Strikethrough\Strikethrough\bin\Strikethrough.dll
+C:\Users\Sammy\Documents\GitHub\Strikethrough\Strikethrough\bin\Strikethrough.pdb
+C:\Users\Sammy\Documents\GitHub\Strikethrough\Strikethrough\bin\nunit.framework.dll
+C:\Users\Sammy\Documents\GitHub\Strikethrough\Strikethrough\bin\nunit.framework.xml
+C:\Users\Sammy\Documents\GitHub\Strikethrough\Strikethrough\obj\Debug\Strikethrough.csprojResolveAssemblyReference.cache
+C:\Users\Sammy\Documents\GitHub\Strikethrough\Strikethrough\obj\Debug\Strikethrough.dll
+C:\Users\Sammy\Documents\GitHub\Strikethrough\Strikethrough\obj\Debug\Strikethrough.pdb
