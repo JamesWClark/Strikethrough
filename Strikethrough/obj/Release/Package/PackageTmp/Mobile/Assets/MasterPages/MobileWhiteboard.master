@@ -1,0 +1,8 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Mobile/Assets/MasterPages/MobileMember.master" AutoEventWireup="true" CodeBehind="MobileWhiteboard.master.cs" Inherits="Strikethrough.Mobile.Assets.MasterPages.MobileWhiteboard" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="MemberHead" runat="server">
+    <script src="../Assets/Scripts/sketch.min.js"></script>
+    <link href="../Assets/Stylesheets/whiteboard.css" rel="stylesheet" />
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="MemberPlaceholder" runat="server">
+    <asp:ContentPlaceHolder ID="WhiteboardPlaceholder" runat="server"></asp:ContentPlaceHolder>
+</asp:Content>

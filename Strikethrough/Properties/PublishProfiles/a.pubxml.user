@@ -17,7 +17,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/27/2013 17:16:42</publishTime>
     </File>
     <File Include="Assets/MasterPages/Master.Master">
-      <publishTime>03/27/2013 00:05:35</publishTime>
+      <publishTime>04/07/2013 00:39:32</publishTime>
     </File>
     <File Include="Assets/MasterPages/Member.master">
       <publishTime>03/27/2013 00:05:35</publishTime>
@@ -74,7 +74,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/22/2012 22:16:32</publishTime>
     </File>
     <File Include="bin/Strikethrough.dll">
-      <publishTime>03/27/2013 21:06:20</publishTime>
+      <publishTime>04/07/2013 02:08:49</publishTime>
     </File>
     <File Include="Default.aspx">
       <publishTime>03/27/2013 00:05:36</publishTime>
@@ -100,6 +100,33 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Members/Whiteboard.aspx">
       <publishTime>03/27/2013 00:05:36</publishTime>
     </File>
+    <File Include="Mobile/Assets/MasterPages/Mobile.Master">
+      <publishTime>04/06/2013 23:23:51</publishTime>
+    </File>
+    <File Include="Mobile/Assets/MasterPages/MobileMember.master">
+      <publishTime>04/06/2013 22:53:33</publishTime>
+    </File>
+    <File Include="Mobile/Assets/MasterPages/MobileWhiteboard.master">
+      <publishTime>04/06/2013 22:56:02</publishTime>
+    </File>
+    <File Include="Mobile/Default.aspx">
+      <publishTime>04/07/2013 01:26:37</publishTime>
+    </File>
+    <File Include="Mobile/Login.aspx">
+      <publishTime>04/07/2013 01:28:30</publishTime>
+    </File>
+    <File Include="Mobile/Members/Default.aspx">
+      <publishTime>04/06/2013 23:40:39</publishTime>
+    </File>
+    <File Include="Mobile/Members/Web.config">
+      <publishTime>04/06/2013 23:44:28</publishTime>
+    </File>
+    <File Include="Mobile/Members/Whiteboard.aspx">
+      <publishTime>04/06/2013 23:48:52</publishTime>
+    </File>
+    <File Include="Mobile/Signup.aspx">
+      <publishTime>04/07/2013 01:36:13</publishTime>
+    </File>
     <File Include="Properties/Settings.settings">
       <publishTime>03/27/2013 00:05:36</publishTime>
     </File>
@@ -107,7 +134,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/27/2013 00:05:36</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>03/27/2013 21:06:21</publishTime>
+      <publishTime>04/07/2013 02:08:49</publishTime>
     </File>
   </ItemGroup>
 </Project>
