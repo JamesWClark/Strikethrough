@@ -23,7 +23,7 @@ namespace Strikethrough.Assets.WebServices
         private static DataTable dt;
 
         [WebMethod]
-        public void ExecuteNonQuery(string query)
+        public void ExecuteNonQuery(string command)
         {
             try
             {
@@ -31,7 +31,7 @@ namespace Strikethrough.Assets.WebServices
 
                 //create a new command with the column name and data type query above
                 cmd = new SqlCommand();
-                cmd.CommandText = query;
+                cmd.CommandText = command;
                 cmd.CommandType = CommandType.Text;
                 cmd.Connection = conn;
                 cmd.ExecuteNonQuery();

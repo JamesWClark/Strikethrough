@@ -7,45 +7,36 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Strikethrough.Assets.MasterPages {
+namespace Strikethrough.Members.Groups {
     
     
-    public partial class Member {
+    public partial class AddTeacher {
         
         /// <summary>
-        /// MemberHead control.
+        /// txtTeacherEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder MemberHead;
+        protected global::System.Web.UI.WebControls.TextBox txtTeacherEmail;
         
         /// <summary>
-        /// HyperLink1 control.
+        /// btnAddTeacher control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink1;
+        protected global::System.Web.UI.WebControls.Button btnAddTeacher;
         
         /// <summary>
-        /// HyperLink2 control.
+        /// rfvTeacherEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink2;
-        
-        /// <summary>
-        /// MemberPlaceholder control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder MemberPlaceholder;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvTeacherEmail;
     }
 }

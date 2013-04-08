@@ -82,14 +82,17 @@
     <Content Include="Developers\Net.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Login.aspx" />
+    <Content Include="Members\Groups\AddTeacher.aspx" />
+    <Content Include="Members\Groups\CreateGroup.aspx" />
     <Content Include="Members\Default.aspx" />
+    <Content Include="Members\Groups\GroupManager.aspx" />
     <Content Include="Members\Whiteboard.aspx" />
     <Content Include="Mobile\Default.aspx" />
     <Content Include="Mobile\Login.aspx" />
     <Content Include="Mobile\Members\Default.aspx" />
     <Content Include="Mobile\Members\Whiteboard.aspx" />
     <Content Include="Mobile\Signup.aspx" />
-    <Content Include="Signup.aspx" />
+    <Content Include="Register.aspx" />
     <Content Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -107,6 +110,7 @@
       <DependentUpon>ControlPanel.aspx</DependentUpon>
     </Compile>
     <Compile Include="Assets\Code\GeoIP.cs" />
+    <Compile Include="Assets\Code\GroupFactory.cs" />
     <Compile Include="Assets\MasterPages\Master.Master.cs">
       <DependentUpon>Master.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -161,12 +165,33 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Members\Groups\AddTeacher.aspx.cs">
+      <DependentUpon>AddTeacher.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Members\Groups\AddTeacher.aspx.designer.cs">
+      <DependentUpon>AddTeacher.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Members\Groups\CreateGroup.aspx.cs">
+      <DependentUpon>CreateGroup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Members\Groups\CreateGroup.aspx.designer.cs">
+      <DependentUpon>CreateGroup.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Members\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Members\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Members\Groups\GroupManager.aspx.cs">
+      <DependentUpon>GroupManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Members\Groups\GroupManager.aspx.designer.cs">
+      <DependentUpon>GroupManager.aspx</DependentUpon>
     </Compile>
     <Compile Include="Members\Whiteboard.aspx.cs">
       <DependentUpon>Whiteboard.aspx</DependentUpon>
@@ -237,12 +262,12 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="Signup.aspx.cs">
-      <DependentUpon>Signup.aspx</DependentUpon>
+    <Compile Include="Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Signup.aspx.designer.cs">
-      <DependentUpon>Signup.aspx</DependentUpon>
+    <Compile Include="Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

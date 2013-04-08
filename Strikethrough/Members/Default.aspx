@@ -8,4 +8,3 @@
     <asp:HiddenField ID="hiddenUserId" runat="server" OnInit="hiddenUserId_Init" />
     </asp:Content>
 
-

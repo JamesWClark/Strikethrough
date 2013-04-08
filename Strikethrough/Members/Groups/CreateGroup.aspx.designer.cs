@@ -7,36 +7,36 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Strikethrough {
+namespace Strikethrough.Members {
     
     
-    public partial class Signup {
+    public partial class CreateGroup {
         
         /// <summary>
-        /// CreateUserWizard1 control.
+        /// txtGroupName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CreateUserWizard CreateUserWizard1;
+        protected global::System.Web.UI.WebControls.TextBox txtGroupName;
         
         /// <summary>
-        /// CreateUserWizardStep1 control.
+        /// btnCreate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CreateUserWizardStep CreateUserWizardStep1;
+        protected global::System.Web.UI.WebControls.Button btnCreate;
         
         /// <summary>
-        /// CompleteWizardStep1 control.
+        /// rfvGroupName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CompleteWizardStep CompleteWizardStep1;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvGroupName;
     }
 }
