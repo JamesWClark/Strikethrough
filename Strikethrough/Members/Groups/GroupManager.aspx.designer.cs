@@ -10,7 +10,7 @@
 namespace Strikethrough.Members {
     
     
-    public partial class Groups {
+    public partial class GroupManager {
         
         /// <summary>
         /// HyperLink1 control.
@@ -29,5 +29,14 @@ namespace Strikethrough.Members {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblMessage;
+        
+        /// <summary>
+        /// phGroupList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder phGroupList;
     }
 }

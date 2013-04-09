@@ -18,7 +18,8 @@ namespace Strikethrough.Members
 
         protected void btnCreate_Click(object sender, EventArgs e)
         {
-            GroupFactory.CreateGroup(Guid.NewGuid().ToString(), txtGroupName.Text, Membership.GetUser().ProviderUserKey.ToString());
+            Assets.WebServices.GroupService service = new Assets.WebServices.GroupService();
+            service.CreateGroup(Guid.NewGuid().ToString(), txtGroupName.Text, Membership.GetUser().ProviderUserKey.ToString());
             Response.Redirect("GroupManager.aspx?created=true");
         }
     }

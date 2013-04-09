@@ -6,7 +6,9 @@
     <div>
         <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Members/Groups/GroupManager.aspx">Group Manager</asp:HyperLink>
         <br />
-        <asp:HyperLink ID="HyperLink2" runat="server">Add a Teacher</asp:HyperLink>
+        <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/Members/Groups/AddTeacher.aspx">Add a Teacher</asp:HyperLink>
+            
+        <br />
             
     </div>
     <br />

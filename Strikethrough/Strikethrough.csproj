@@ -77,6 +77,7 @@
     <Content Include="Assets\Scripts\sketch.min.js" />
     <Content Include="Assets\Stylesheets\whiteboard.css" />
     <Content Include="Assets\WebServices\DataHandler.asmx" />
+    <Content Include="Assets\WebServices\GroupService.asmx" />
     <Content Include="Assets\WebServices\SystemNetService.asmx" />
     <Content Include="Default.aspx" />
     <Content Include="Developers\Net.aspx" />
@@ -134,6 +135,10 @@
     </Compile>
     <Compile Include="Assets\WebServices\DataHandler.asmx.cs">
       <DependentUpon>DataHandler.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Assets\WebServices\GroupService.asmx.cs">
+      <DependentUpon>GroupService.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Assets\WebServices\SystemNetService.asmx.cs">

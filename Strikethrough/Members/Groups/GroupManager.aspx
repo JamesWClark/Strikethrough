@@ -8,5 +8,5 @@
     <asp:Label ID="lblMessage" runat="server"></asp:Label>
     <br />
     <br />
-    
+    <asp:PlaceHolder ID="phGroupList" runat="server"></asp:PlaceHolder> 
 </asp:Content>
