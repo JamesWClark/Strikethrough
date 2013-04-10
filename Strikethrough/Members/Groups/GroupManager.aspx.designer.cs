@@ -31,12 +31,39 @@ namespace Strikethrough.Members {
         protected global::System.Web.UI.WebControls.Label lblMessage;
         
         /// <summary>
-        /// phGroupList control.
+        /// lblTeacherMessage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder phGroupList;
+        protected global::System.Web.UI.WebControls.Label lblTeacherMessage;
+        
+        /// <summary>
+        /// phTeacherList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder phTeacherList;
+        
+        /// <summary>
+        /// lblMemberMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMemberMessage;
+        
+        /// <summary>
+        /// phMemberList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder phMemberList;
     }
 }

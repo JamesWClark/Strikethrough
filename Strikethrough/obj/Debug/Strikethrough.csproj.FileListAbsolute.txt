@@ -20,3 +20,4 @@ C:\Users\JWC\Documents\GitHub\Strikethrough\Strikethrough\bin\nunit.framework.dl
 C:\Users\JWC\Documents\GitHub\Strikethrough\Strikethrough\bin\nunit.framework.xml
 C:\Users\JWC\Documents\GitHub\Strikethrough\Strikethrough\obj\Debug\Strikethrough.dll
 C:\Users\JWC\Documents\GitHub\Strikethrough\Strikethrough\obj\Debug\Strikethrough.pdb
+C:\Users\JWC\Documents\GitHub\Strikethrough\Strikethrough\obj\Debug\Strikethrough.csprojResolveAssemblyReference.cache

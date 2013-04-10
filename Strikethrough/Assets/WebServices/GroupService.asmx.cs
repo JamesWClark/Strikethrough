@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
+using Strikethrough.Assets.WebServices;
 
 namespace Strikethrough.Assets.WebServices
 {
@@ -18,24 +19,36 @@ namespace Strikethrough.Assets.WebServices
     // [System.Web.Script.Services.ScriptService]
     public class GroupService : System.Web.Services.WebService
     {
-        WebServices.DataHandler handler;
+        DataHandler handler;
 
+        //web services throw errors differently. these shoudl return values or something instead, bc the app won't catch errors
         [WebMethod]
         public void CreateGroup(string GroupId, string GroupName, string UserId)
         {
-            handler = new WebServices.DataHandler();
+            handler = new DataHandler();
 
             string insert =
-                "INSERT INTO user_Groups (GroupId, GroupName, UserId) " +
+                "INSERT INTO user_Groups (GroupId, GroupName, TeacherId) " +
                 "VALUES ('" + GroupId + "','" + GroupName + "','" + UserId + "')";
 
             handler.ExecuteNonQuery(insert);
         }
         [WebMethod]
-        public DataTable GetGroupList(string UserId)
+        public DataTable GetTeacherGroupTable(string UserId)
         {
-            handler = new WebServices.DataHandler();
+            handler = new DataHandler();
             string select = "SELECT * FROM user_Groups WHERE TeacherId = '" + UserId + "'";
+            return handler.GetDataTable(select);
+        }
+        [WebMethod]
+        public DataTable GetMemberGroupTable(string UserId)
+        {
+            handler = new DataHandler();
+            string select =
+                "SELECT * FROM user_Groups, user_UsersInGroups " + 
+                "WHERE user_UsersInGroups.UserId = '" + UserId + "' " + 
+                "AND user_Groups.GroupId = user_Groups.GroupId";
+
             return handler.GetDataTable(select);
         }
     }
