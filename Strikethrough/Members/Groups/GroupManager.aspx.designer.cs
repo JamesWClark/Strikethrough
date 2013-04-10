@@ -31,39 +31,57 @@ namespace Strikethrough.Members {
         protected global::System.Web.UI.WebControls.Label lblMessage;
         
         /// <summary>
-        /// lblTeacherMessage control.
+        /// lblSupervisorOf control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTeacherMessage;
+        protected global::System.Web.UI.WebControls.Label lblSupervisorOf;
         
         /// <summary>
-        /// phTeacherList control.
+        /// phSupervisorOf control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder phTeacherList;
+        protected global::System.Web.UI.WebControls.PlaceHolder phSupervisorOf;
         
         /// <summary>
-        /// lblMemberMessage control.
+        /// lblMemberOf control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMemberMessage;
+        protected global::System.Web.UI.WebControls.Label lblMemberOf;
         
         /// <summary>
-        /// phMemberList control.
+        /// phMemberOf control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder phMemberList;
+        protected global::System.Web.UI.WebControls.PlaceHolder phMemberOf;
+        
+        /// <summary>
+        /// lblHasTeachers control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblHasTeachers;
+        
+        /// <summary>
+        /// phHasTeachers control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder phHasTeachers;
     }
 }

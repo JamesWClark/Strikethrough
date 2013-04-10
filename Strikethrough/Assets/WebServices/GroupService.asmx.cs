@@ -34,20 +34,32 @@ namespace Strikethrough.Assets.WebServices
             handler.ExecuteNonQuery(insert);
         }
         [WebMethod]
-        public DataTable GetTeacherGroupTable(string UserId)
+        public DataTable GetSupervisorOfData(string UserId)
         {
             handler = new DataHandler();
             string select = "SELECT * FROM user_Groups WHERE TeacherId = '" + UserId + "'";
             return handler.GetDataTable(select);
         }
         [WebMethod]
-        public DataTable GetMemberGroupTable(string UserId)
+        public DataTable GetMemberOfData(string UserId)
         {
             handler = new DataHandler();
             string select =
                 "SELECT * FROM user_Groups, user_UsersInGroups " + 
                 "WHERE user_UsersInGroups.UserId = '" + UserId + "' " + 
                 "AND user_Groups.GroupId = user_Groups.GroupId";
+
+            return handler.GetDataTable(select);
+        }
+        [WebMethod]
+        public DataTable GetHasTeachersData(string UserId)
+        {
+            handler = new DataHandler();
+            string select =
+                "SELECT user_UserHasTeachers.TeacherId, aspnet_Users.UserName " +
+                "FROM user_UserHasTeachers, aspnet_Users " +
+                "WHERE user_UserHasTeachers.TeacherId = aspnet_Users.UserId " +
+                "AND user_UserHasTeachers.UserId = '" + UserId + "'";
 
             return handler.GetDataTable(select);
         }

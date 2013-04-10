@@ -9,22 +9,31 @@ namespace Strikethrough.Assets.Code
 {
     public class GroupFactory
     {
-        //i think delegates would improve the following methods, making it possible to use only one method instead of this repeating code
-
-        //shape the table so that the first column is the key, and second is the value, such as groupid, groupname or userid, username
+        //first column is the key, and second is the value, such as groupid/groupname or userid/username
         public static void BuildPlaceHolder(PlaceHolder placeHolder, DataTable groupTable)
         {
             BuildListButtons(placeHolder, groupTable);
         }
-
         public static void CreateGroup(string groupName, string userId)
         {
             GroupService service = new GroupService();
             service.CreateGroup(Guid.NewGuid().ToString(), groupName, userId);
         }
+        public static void SubscribeToTeacher(string teacherEmail, string userId)
+        {
+            //get the teacherId from the email address the user entered
+            DataHandler handler = new DataHandler();
+            string select = "SELECT UserId FROM aspnet_Membership WHERE LoweredEmail = '" + teacherEmail.ToLower() + "'";
+            string teacherId = handler.ExecuteScalar(select);
+
+            //add the teacher to the student by the teacher's userId
+            string insert = "INSERT INTO user_UserHasTeachers (TeacherId, UserId) VALUES ('" + teacherId + "', '" + userId + "')";
+            handler.ExecuteNonQuery(insert);
+        }
 
 
 
+        //first column is the key, and second is the value, such as groupid/groupname or userid/username
         private static void BuildListButtons(PlaceHolder placeHolder, DataTable dtGroups)
         {
             for (int i = 0; i < dtGroups.Rows.Count; i++)

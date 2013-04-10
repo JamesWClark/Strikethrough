@@ -8,14 +8,17 @@
     <asp:Label ID="lblMessage" runat="server"></asp:Label>
     <br />
     <br />
-    <asp:Label ID="lblTeacherMessage" runat="server" Text=""></asp:Label>
+    <asp:Label ID="lblSupervisorOf" runat="server" Text=""></asp:Label>
+    <br />
+    <asp:PlaceHolder ID="phSupervisorOf" runat="server"></asp:PlaceHolder>
     <br />
     <br />
-    <asp:PlaceHolder ID="phTeacherList" runat="server"></asp:PlaceHolder>
+    <asp:Label ID="lblMemberOf" runat="server" Text=""></asp:Label>
+    <br />
+    <asp:PlaceHolder ID="phMemberOf" runat="server"></asp:PlaceHolder>
     <br />
     <br />
-    <asp:Label ID="lblMemberMessage" runat="server" Text=""></asp:Label>
+    <asp:Label ID="lblHasTeachers" runat="server" Text=""></asp:Label>
     <br />
-    <br />
-    <asp:PlaceHolder ID="phMemberList" runat="server"></asp:PlaceHolder>
+    <asp:PlaceHolder ID="phHasTeachers" runat="server"></asp:PlaceHolder>
 </asp:Content>

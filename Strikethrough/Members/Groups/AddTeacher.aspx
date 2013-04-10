@@ -4,7 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MemberPlaceholder" runat="server">
     <h3>Add a Teacher</h3>
     <asp:TextBox ID="txtTeacherEmail" placeholder="email address" runat="server" Width="221px"></asp:TextBox> 
-    <asp:Button ID="btnAddTeacher" runat="server" Text="Add Teacher" />
+    <asp:Button ID="btnAddTeacher" runat="server" Text="Add Teacher" OnClick="btnAddTeacher_Click" />
     <br />
     <asp:RequiredFieldValidator ID="rfvTeacherEmail" runat="server" ErrorMessage="This is a required field" ControlToValidate="txtTeacherEmail"></asp:RequiredFieldValidator>
 </asp:Content>

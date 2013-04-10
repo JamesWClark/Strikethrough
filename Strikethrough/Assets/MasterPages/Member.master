@@ -4,6 +4,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainPlaceholder" runat="server">
     <div>
+        <asp:LoginStatus ID="LoginStatus1" runat="server" />
+        <br />
+        <br />
         <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Members/Groups/GroupManager.aspx">Group Manager</asp:HyperLink>
         <br />
         <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/Members/Groups/AddTeacher.aspx">Add a Teacher</asp:HyperLink>

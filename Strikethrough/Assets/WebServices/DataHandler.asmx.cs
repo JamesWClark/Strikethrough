@@ -25,73 +25,54 @@ namespace Strikethrough.Assets.WebServices
         [WebMethod]
         public void ExecuteNonQuery(string command)
         {
-            try
-            {
-                Connect();
+            Connect();
 
-                //create a new command with the column name and data type query above
-                cmd = new SqlCommand();
-                cmd.CommandText = command;
-                cmd.CommandType = CommandType.Text;
-                cmd.Connection = conn;
-                cmd.ExecuteNonQuery();
+            //create a new command with the column name and data type query above
+            cmd = new SqlCommand();
+            cmd.CommandText = command;
+            cmd.CommandType = CommandType.Text;
+            cmd.Connection = conn;
+            cmd.ExecuteNonQuery();
 
-                cmd.Dispose(); conn.Dispose();
-            }
-            catch (Exception)
-            {
-            }
+            cmd.Dispose(); conn.Dispose();
         }
         [WebMethod]
         public string ExecuteScalar(string query)
         {
             string value = "";
-            try
-            {
 
-                Connect();
+            Connect();
 
-                //create a new command with the column name and data type query above
-                cmd = new SqlCommand();
-                cmd.CommandText = query;
-                cmd.CommandType = CommandType.Text;
-                cmd.Connection = conn;
-                value = cmd.ExecuteScalar().ToString();
+            //create a new command with the column name and data type query above
+            cmd = new SqlCommand();
+            cmd.CommandText = query;
+            cmd.CommandType = CommandType.Text;
+            cmd.Connection = conn;
+            value = cmd.ExecuteScalar().ToString();
 
-                cmd.Dispose(); conn.Dispose();
-            }
-            catch (Exception ex)
-            {
-                value = ex.Message;
-            }
+            cmd.Dispose(); conn.Dispose();
+
             return value;
         }
         [WebMethod]
         public DataTable GetDataTable(string query)
         {
-            try
-            {
-                Connect();
+            Connect();
 
-                //create a new command with the column name and data type query above
-                cmd = new SqlCommand();
-                cmd.CommandText = query;
-                cmd.CommandType = CommandType.Text;
-                cmd.Connection = conn;
+            //create a new command with the column name and data type query above
+            cmd = new SqlCommand();
+            cmd.CommandText = query;
+            cmd.CommandType = CommandType.Text;
+            cmd.Connection = conn;
 
-                dt = new DataTable();
-                sda = new SqlDataAdapter();
-                sda.SelectCommand = cmd;
-                sda.Fill(dt);
+            dt = new DataTable();
+            sda = new SqlDataAdapter();
+            sda.SelectCommand = cmd;
+            sda.Fill(dt);
 
-                sda.Dispose(); cmd.Dispose(); conn.Dispose();
+            sda.Dispose(); cmd.Dispose(); conn.Dispose();
 
-                return dt;
-            }
-            catch (Exception)
-            {
-                return null;
-            }
+            return dt;
         }
         //create and open a connection to the database
         private void Connect()

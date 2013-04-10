@@ -20,19 +20,15 @@ namespace Strikethrough.Members
             base.OnInit(e);
             GroupService service = new GroupService();
 
-            //(teacher) get a table of the groups this person is teaching
-            DataTable teacherGroupTable = service.GetTeacherGroupTable(userId);
+            DataTable dtSuperviorOf = service.GetSupervisorOfData(userId);
+            DataTable dtMemberOf = service.GetMemberOfData(userId);
+            DataTable dtHasTeachers = service.GetHasTeachersData(userId);
 
-            //(membership) get a table of groups this person belongs to 
-            DataTable memberGroupTable = service.GetMemberGroupTable(userId);
-
-            //build the teacher list
-            GroupFactory.BuildPlaceHolder(phTeacherList, teacherGroupTable);
-
-            //build the membership list
-            GroupFactory.BuildPlaceHolder(phMemberList, memberGroupTable);
+            GroupFactory.BuildPlaceHolder(phSupervisorOf, dtSuperviorOf);
+            GroupFactory.BuildPlaceHolder(phMemberOf, dtMemberOf);
+            GroupFactory.BuildPlaceHolder(phHasTeachers, dtHasTeachers);
         }
-        //mostly used to set label text values (pertinent messages)
+        //mostly used to set messages on this page
         protected void Page_Load(object sender, EventArgs e)
         {
             //see if this is redirected with a query string, display a message if yes
@@ -41,17 +37,23 @@ namespace Strikethrough.Members
             if (hasMessage == true)
                 lblMessage.Text = "Group successfully created.";
 
-            //display a message before the teaching list
-            if (phTeacherList.Controls.Count > 0)
-                lblTeacherMessage.Text = "You are teaching the following groups: ";
+            //supervisorOf
+            if (phSupervisorOf.Controls.Count > 0)
+                lblSupervisorOf.Text = "You supervise the following groups: ";
             else
-                lblTeacherMessage.Text = "You are not teaching any groups.";
+                lblSupervisorOf.Text = "You are not supervising any groups.";
 
-            //display a message before the member list
-            if (phMemberList.Controls.Count > 0)
-                lblMemberMessage.Text = "You are a member of the following groups: ";
+            //memberOf
+            if (phMemberOf.Controls.Count > 0)
+                lblMemberOf.Text = "You are a member of the following groups: ";
             else
-                lblMemberMessage.Text = "You do not belong to any groups.";
+                lblMemberOf.Text = "You do not belong to anyone else's groups.";
+
+            //hasTeacher
+            if (phHasTeachers.Controls.Count > 0)
+                lblHasTeachers.Text = "You added the following teachers: ";
+            else
+                lblHasTeachers.Text = "You have not added any teachers.";
         }
     }
 }
