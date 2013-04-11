@@ -63,5 +63,43 @@ namespace Strikethrough.Assets.WebServices
 
             return handler.GetDataTable(select);
         }
+        [WebMethod]
+        public int GetProspectiveStudentCount(string UserId)
+        {
+            handler = new DataHandler();
+            //this find students that added a teacher but do not exist in their group
+            //critical: needs to include a comparison to the teacher's groups
+            //right now, a student could be in someone else's group and this would exlude from from this teacher's query
+            string select =
+                "SELECT COUNT(aspnet_Users.UserName) " +
+                "FROM user_UserHasTeachers, aspnet_Users " +
+                "WHERE TeacherId = '" + UserId + "' " +
+                "AND aspnet_Users.UserId = user_UserHasTeachers.UserId " +
+                "AND aspnet_Users.UserId NOT IN " +
+	                "(SELECT UserId FROM user_UsersInGroups)";
+
+            int count;
+            int.TryParse(handler.ExecuteScalar(select), out count);
+            return count;
+        }
+        [WebMethod]
+        public DataTable GetProspectiveStudentsData(string UserId)
+        {
+            handler = new DataHandler();
+            string select =
+                "SELECT aspnet_Users.UserName, aspnet_Users.UserId " +
+                "FROM user_UserHasTeachers, aspnet_Users " +
+                "WHERE TeacherId = '" + UserId + "' " +
+                "AND aspnet_Users.UserId = user_UserHasTeachers.UserId " +
+                "AND aspnet_Users.UserId NOT IN " +
+                    "(SELECT UserId FROM user_UsersInGroups)";
+
+            return handler.GetDataTable(select);
+        }
+        [WebMethod]
+        public void AddStudentToGroup(string userId)
+        {
+
+        }
     }
 }

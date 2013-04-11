@@ -21,7 +21,7 @@ namespace Strikethrough.Assets.Code
         }
         public static void SubscribeToTeacher(string teacherEmail, string userId)
         {
-            //get the teacherId from the email address the user entered
+            //get the teacher's userId from the email address the user entered
             DataHandler handler = new DataHandler();
             string select = "SELECT UserId FROM aspnet_Membership WHERE LoweredEmail = '" + teacherEmail.ToLower() + "'";
             string teacherId = handler.ExecuteScalar(select);
@@ -56,28 +56,15 @@ namespace Strikethrough.Assets.Code
         }
         private static void MemberOf_Click(Object sender, CommandEventArgs e) 
         {
-
         }
         private static void HasTeachers_Click(Object sender, CommandEventArgs e)
         {
 
         }
-        private static void RegisterLinkButtonEventHandlers(PlaceHolder parent, string command)
+        
+        private static void RegisterLinkButtonEventHandlers()
         {
-            if (parent.Controls.Count > 0)
-            {
-                foreach (Control c in parent.Controls)
-                {
-                    LinkButton link = (LinkButton)c;
-                    link.PostBackUrl = "Group.aspx";
-                    
-                }
-            }
-            switch (command)
-            {
-                case "member":
-                    break;
-            }
+
         }
     }
 }

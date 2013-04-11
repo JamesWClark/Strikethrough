@@ -21,4 +21,9 @@
     <asp:Label ID="lblHasTeachers" runat="server" Text=""></asp:Label>
     <br />
     <asp:PlaceHolder ID="phHasTeachers" runat="server"></asp:PlaceHolder>
+    <br />
+    <br />
+    <asp:Label ID="lblHasProspectiveStudents" runat="server" Text=""></asp:Label>
+    <br />
+    <asp:PlaceHolder ID="phHasProspectiveStudents" runat="server"></asp:PlaceHolder>
 </asp:Content>
