@@ -13,6 +13,10 @@ namespace Strikethrough.Members
 {
     public partial class GroupManager : System.Web.UI.Page
     {
+        //these are generic key/value pairs that can be passed publicy using the accessors at the bottom of the page
+        private string key;
+        private string value;
+
         private string userId = Membership.GetUser().ProviderUserKey.ToString();
 
         protected override void OnInit(EventArgs e)
@@ -54,6 +58,23 @@ namespace Strikethrough.Members
                 lblHasTeachers.Text = "You added the following teachers: ";
             else
                 lblHasTeachers.Text = "You have not added any teachers.";
+        }
+
+
+        //generic accessors, useful for passing a key/value pair to the next page request
+        public string Key
+        {
+            get
+            {
+                return key;
+            }
+        }
+        public string Value
+        {
+            get
+            {
+                return value;
+            }
         }
     }
 }

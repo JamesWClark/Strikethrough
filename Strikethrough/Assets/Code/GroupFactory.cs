@@ -44,14 +44,40 @@ namespace Strikethrough.Assets.Code
                 LinkButton b = new LinkButton();
                 b.Text = name;
                 b.CommandArgument = id;
-                b.Command += new CommandEventHandler(GroupList_LinkButton_Click);
+                b.CommandName = name;
+                //b.Command += new CommandEventHandler(GroupList_LinkButton_Click);
 
                 placeHolder.Controls.Add(b);
             }
         }
-        private static void GroupList_LinkButton_Click(Object sender, CommandEventArgs e) 
+        private static void SupervisorOf_Click(Object sender, CommandEventArgs e)
+        {
+            
+        }
+        private static void MemberOf_Click(Object sender, CommandEventArgs e) 
         {
 
+        }
+        private static void HasTeachers_Click(Object sender, CommandEventArgs e)
+        {
+
+        }
+        private static void RegisterLinkButtonEventHandlers(PlaceHolder parent, string command)
+        {
+            if (parent.Controls.Count > 0)
+            {
+                foreach (Control c in parent.Controls)
+                {
+                    LinkButton link = (LinkButton)c;
+                    link.PostBackUrl = "Group.aspx";
+                    
+                }
+            }
+            switch (command)
+            {
+                case "member":
+                    break;
+            }
         }
     }
 }
