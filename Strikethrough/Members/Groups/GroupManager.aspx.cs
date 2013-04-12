@@ -48,7 +48,7 @@ namespace Strikethrough.Members
             bool hasMessage = false;
             bool.TryParse(Request.QueryString["created"], out hasMessage);
             if (hasMessage == true)
-                lblMessage.Text = "Group successfully created.";
+                lblMessage.Text = "Operation successfully completed.";
 
             //supervisorOf
             if (phSupervisorOf.Controls.Count > 0)
@@ -70,7 +70,7 @@ namespace Strikethrough.Members
 
             //hasPropsectiveStudent
             if (service.GetProspectiveStudentCount(userId) > 0)
-                lblHasProspectiveStudents.Text = "You have prospective students.<br /><a href='Students.aspx'>See who added you</a>";
+                lblHasProspectiveStudents.Text = "You have prospective students.<br /><a href='AddStudents.aspx'>See who added you</a>";
             else
                 lblHasProspectiveStudents.Text = "No students have added you";
 

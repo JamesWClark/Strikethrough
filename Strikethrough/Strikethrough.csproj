@@ -91,7 +91,7 @@
     <Content Include="Members\Default.aspx" />
     <Content Include="Members\Groups\Group.aspx" />
     <Content Include="Members\Groups\GroupManager.aspx" />
-    <Content Include="Members\Groups\Students.aspx" />
+    <Content Include="Members\Groups\AddStudents.aspx" />
     <Content Include="Members\Whiteboard.aspx" />
     <Content Include="Mobile\Default.aspx" />
     <Content Include="Mobile\Login.aspx" />
@@ -224,12 +224,12 @@
     <Compile Include="Members\Groups\GroupManager.aspx.designer.cs">
       <DependentUpon>GroupManager.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Members\Groups\Students.aspx.cs">
-      <DependentUpon>Students.aspx</DependentUpon>
+    <Compile Include="Members\Groups\AddStudents.aspx.cs">
+      <DependentUpon>AddStudents.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Members\Groups\Students.aspx.designer.cs">
-      <DependentUpon>Students.aspx</DependentUpon>
+    <Compile Include="Members\Groups\AddStudents.aspx.designer.cs">
+      <DependentUpon>AddStudents.aspx</DependentUpon>
     </Compile>
     <Compile Include="Members\Whiteboard.aspx.cs">
       <DependentUpon>Whiteboard.aspx</DependentUpon>

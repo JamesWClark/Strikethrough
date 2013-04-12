@@ -9,11 +9,6 @@ namespace Strikethrough.Assets.Code
 {
     public class GroupFactory
     {
-        //first column is the key, and second is the value, such as groupid/groupname or userid/username
-        public static void BuildPlaceHolder(PlaceHolder placeHolder, DataTable groupTable)
-        {
-            BuildListButtons(placeHolder, groupTable);
-        }
         public static void CreateGroup(string groupName, string userId)
         {
             GroupService service = new GroupService();
@@ -30,7 +25,45 @@ namespace Strikethrough.Assets.Code
             string insert = "INSERT INTO user_UserHasTeachers (TeacherId, UserId) VALUES ('" + teacherId + "', '" + userId + "')";
             handler.ExecuteNonQuery(insert);
         }
+        //first column is the key, and second is the value, such as groupid/groupname or userid/username
+        public static void BuildPlaceHolder(PlaceHolder placeHolder, DataTable groupTable)
+        {
+            BuildListButtons(placeHolder, groupTable);
+        }
+        public static void BuildStudentProspectTable(Table table, string userId)
+        {
+            GroupService service = new GroupService();
+            DataTable dtProspects = service.GetProspectiveStudentsData(userId);
+            DataTable dtGroups = service.GetSupervisorOfData(userId);
 
+            for (int i = 0; i < dtProspects.Rows.Count; i++)
+            {
+                DropDownList ddlGroupList = new DropDownList();
+                ddlGroupList.DataSource = dtGroups;
+                ddlGroupList.DataTextField = "GroupName";
+                ddlGroupList.DataValueField = "GroupId";
+                ddlGroupList.DataBind();
+                ddlGroupList.Items.Insert(0, "Add a group");
+
+                string name = dtProspects.Rows[i].ItemArray[0].ToString();
+                string id = dtProspects.Rows[i].ItemArray[1].ToString();
+
+                LinkButton b = new LinkButton();
+                b.Text = name;
+                b.CommandArgument = id;
+                b.CommandName = name;
+
+                TableRow row = new TableRow();
+                TableCell cellProspects = new TableCell();
+                TableCell cellGroups = new TableCell();
+
+                cellProspects.Controls.Add(b);
+                cellGroups.Controls.Add(ddlGroupList);
+                row.Cells.Add(cellProspects);
+                row.Cells.Add(cellGroups);
+                table.Rows.Add(row);
+            }
+        }
 
 
         //first column is the key, and second is the value, such as groupid/groupname or userid/username
@@ -45,26 +78,19 @@ namespace Strikethrough.Assets.Code
                 b.Text = name;
                 b.CommandArgument = id;
                 b.CommandName = name;
-                //b.Command += new CommandEventHandler(GroupList_LinkButton_Click);
 
                 placeHolder.Controls.Add(b);
             }
         }
-        private static void SupervisorOf_Click(Object sender, CommandEventArgs e)
+        public static void AssignProspectsToGroups(Table table, string userId)
         {
-            
-        }
-        private static void MemberOf_Click(Object sender, CommandEventArgs e) 
-        {
-        }
-        private static void HasTeachers_Click(Object sender, CommandEventArgs e)
-        {
-
-        }
-        
-        private static void RegisterLinkButtonEventHandlers()
-        {
-
+            GroupService service = new GroupService();
+            foreach (TableRow row in table.Rows)
+            {
+                LinkButton b = (LinkButton)row.Cells[0].Controls[0];
+                DropDownList ddl = (DropDownList)row.Cells[1].Controls[0];
+                service.AddStudentToGroup(b.CommandArgument, ddl.SelectedValue);
+            }
         }
     }
 }
