@@ -5,12 +5,12 @@
     <asp:Label ID="lblGroupName" runat="server"></asp:Label>
     <br />
     <br />
-    <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
+    <asp:Label ID="lblUsers" runat="server"></asp:Label>
     <br />
-    <asp:PlaceHolder ID="PlaceHolder1" runat="server"></asp:PlaceHolder>
+    <asp:PlaceHolder ID="phUsers" runat="server"></asp:PlaceHolder>
     <br />
     <br />
-    <asp:Label ID="Label2" runat="server" Text=""></asp:Label>
+    <asp:Label ID="lblAssignments" runat="server"></asp:Label>
     <br />
-    <asp:PlaceHolder ID="PlaceHolder2" runat="server"></asp:PlaceHolder>
+    <asp:PlaceHolder ID="phAssignments" runat="server"></asp:PlaceHolder>
 </asp:Content>

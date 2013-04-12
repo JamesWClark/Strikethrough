@@ -97,9 +97,23 @@ namespace Strikethrough.Assets.WebServices
             return handler.GetDataTable(select);
         }
         [WebMethod]
-        public void AddStudentToGroup(string userId)
+        public void AddStudentToGroup(string userId, string groupId)
         {
-
+            handler = new DataHandler();
+            string insert =
+                "INSERT INTO user_UsersInGroups (UserId, GroupId) VALUES ('" + userId + "','" + groupId + "')";
+            handler.ExecuteNonQuery(insert);
+        }
+        [WebMethod]
+        public DataTable GetUsersInGroup(string groupId)
+        {
+            handler = new DataHandler();
+            string select = 
+                "SELECT aspnet_Users.UserName, aspnet_Users.UserId " +
+                "FROM user_UsersInGroups, aspnet_Users " +
+                "WHERE user_UsersInGroups.UserId = aspnet_Users.UserId " +
+                "AND user_UsersInGroups.GroupId = '" + groupId + "'";
+            return handler.GetDataTable(select);
         }
     }
 }
