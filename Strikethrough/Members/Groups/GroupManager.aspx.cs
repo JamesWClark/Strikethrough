@@ -88,9 +88,8 @@ namespace Strikethrough.Members
                     switch (command)
                     {
                         case "supervisorOf":
+                            link.Command += LinkButton_Click;
                             link.PostBackUrl = "Group.aspx";
-                            this.key = link.CommandName;
-                            this.value = link.CommandArgument;
                             break;
                         case "memberOf":
                             break;
@@ -99,6 +98,11 @@ namespace Strikethrough.Members
                     }
                 }
             }
+        }
+        private void LinkButton_Click(object sender, CommandEventArgs e)
+        {
+            this.key = e.CommandName.ToString();
+            this.value = e.CommandArgument.ToString();
         }
 
         #endregion

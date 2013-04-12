@@ -108,11 +108,11 @@ namespace Strikethrough.Assets.WebServices
         public DataTable GetUsersInGroup(string groupId)
         {
             handler = new DataHandler();
-            string select = 
+            string select =
                 "SELECT aspnet_Users.UserName, aspnet_Users.UserId " +
                 "FROM user_UsersInGroups, aspnet_Users " +
                 "WHERE user_UsersInGroups.UserId = aspnet_Users.UserId " +
-                "AND user_UsersInGroups.GroupId = '" + groupId + "'";
+                "AND user_UsersInGroups.GroupId = '761233EB-B104-4D70-9E47-A6C5DA731826'";
             return handler.GetDataTable(select);
         }
     }

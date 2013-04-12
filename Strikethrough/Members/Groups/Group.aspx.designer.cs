@@ -56,5 +56,17 @@ namespace Strikethrough.Members.Groups {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.PlaceHolder phAssignments;
+        
+        /// <summary>
+        /// PreviousPage property.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated property.
+        /// </remarks>
+        public new Strikethrough.Members.GroupManager PreviousPage {
+            get {
+                return ((Strikethrough.Members.GroupManager)(base.PreviousPage));
+            }
+        }
     }
 }

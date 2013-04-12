@@ -1,4 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Assets/MasterPages/Member.master" AutoEventWireup="true" CodeBehind="Group.aspx.cs" Inherits="Strikethrough.Members.Groups.Group" %>
+<%@ PreviousPageType VirtualPath="GroupManager.aspx" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="MemberHead" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MemberPlaceholder" runat="server">
