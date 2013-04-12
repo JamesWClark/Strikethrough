@@ -82,6 +82,8 @@
     <Content Include="Assets\WebServices\SystemNetService.asmx" />
     <Content Include="Default.aspx" />
     <Content Include="Developers\Net.aspx" />
+    <Content Include="error.jpg" />
+    <Content Include="ErrorPage.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Account\Login.aspx" />
     <Content Include="Members\Groups\AddTeacher.aspx" />
@@ -170,6 +172,13 @@
       <DependentUpon>Net.aspx</DependentUpon>
     </Compile>
     <Compile Include="Developers\NUnit\Test-WebService-SystemNetService.cs" />
+    <Compile Include="ErrorPage.aspx.cs">
+      <DependentUpon>ErrorPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ErrorPage.aspx.designer.cs">
+      <DependentUpon>ErrorPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

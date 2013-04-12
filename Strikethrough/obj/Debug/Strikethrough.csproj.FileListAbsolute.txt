@@ -22,3 +22,5 @@ C:\Users\JWC\Documents\GitHub\Strikethrough\Strikethrough\obj\Debug\Strikethroug
 C:\Users\JWC\Documents\GitHub\Strikethrough\Strikethrough\obj\Debug\Strikethrough.pdb
 C:\Users\JWC\Documents\GitHub\Strikethrough\Strikethrough\obj\Debug\Strikethrough.csprojResolveAssemblyReference.cache
 C:\Users\jwclark\Documents\GitHub\Strikethrough\Strikethrough\obj\Debug\Strikethrough.csprojResolveAssemblyReference.cache
+C:\Users\Sammy\Documents\GitHub\Strikethrough\Strikethrough\bin\Newtonsoft.Json.pdb
+C:\Users\Sammy\Documents\GitHub\Strikethrough\Strikethrough\bin\Newtonsoft.Json.xml
