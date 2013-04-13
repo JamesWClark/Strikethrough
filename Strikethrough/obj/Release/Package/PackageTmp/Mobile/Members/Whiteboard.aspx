@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Mobile/Assets/MasterPages/MobileWhiteboard.master" AutoEventWireup="true" CodeBehind="Whiteboard.aspx.cs" Inherits="Strikethrough.Mobile.Members.Whiteboard" %>
+<%@ OutputCache VaryByParam="*" Duration="60" VaryByCustom="isMobileDevice" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="WhiteboardPlaceholder" runat="server">
 
     <asp:Button ID="btnSave" runat="server" Text="Save This Whiteboard" OnClientClick="setHiddenCanvasDataUrl()" OnClick="btnSave_Click" />   

@@ -4,10 +4,11 @@
 
     <asp:Button ID="btnSave" runat="server" Text="Save This Whiteboard" OnClientClick="setHiddenCanvasDataUrl()" OnClick="btnSave_Click" />   
     <input style="text-align:center;" name="" id="txtCanvasName" placeholder="Name your whiteboard" value="" runat="server" type="text" autocomplete="off" /> 
+    <asp:DropDownList ID="ddlGroups" runat="server"></asp:DropDownList>
     <h3><asp:RequiredFieldValidator ID="rfvCanvasName" runat="server" ControlToValidate="txtCanvasName" ErrorMessage="This is a required field." SetFocusOnError="True"></asp:RequiredFieldValidator></h3>
-    
-    <canvas id="base-canvas" width="600" height="400" style="z-index: 0;"></canvas>
-    <div id="canvas-container">
+
+    <div id="canvas-container" style="width:600px; height:400px;">
+        <canvas id="base-canvas" width="600" height="400" style="z-index: 0;"></canvas>
     </div>
 
     <h3><asp:Label ID="lblMessage" runat="server" Text=""></asp:Label></h3>
@@ -22,7 +23,7 @@
         if ($("#MainPlaceholder_MemberPlaceholder_WhiteboardPlaceholder_hiddenDataUrl").attr('value')) {
             var src = $("#MainPlaceholder_MemberPlaceholder_WhiteboardPlaceholder_hiddenDataUrl").val();
             loadImage(src);
-            $('#canvas-container').html('<canvas id="layer' + z + '" width="' + canvasWidth + '" height="' + canvasHeight + '" style="z-index: ' + z + ';" ></canvas>');
+            $('#canvas-container').append('<canvas id="layer' + z + '" width="' + canvasWidth + '" height="' + canvasHeight + '" style="z-index: ' + z + ';" ></canvas>');
             $('#layer' + z + '').sketch();
         }
         else {

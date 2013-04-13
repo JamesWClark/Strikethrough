@@ -72,6 +72,7 @@ namespace Strikethrough.Assets.WebServices
 
             sda.Dispose(); cmd.Dispose(); conn.Dispose();
 
+            dt.TableName = "RequestedTable";
             return dt;
         }
         //create and open a connection to the database

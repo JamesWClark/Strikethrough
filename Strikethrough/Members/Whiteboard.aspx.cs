@@ -1,6 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Data;
 using System.Web;
 using System.Web.Security;
 using System.Web.UI;
@@ -10,8 +9,10 @@ namespace Strikethrough.Members
 {
     public partial class Whiteboard : System.Web.UI.Page
     {
+        private string userId = Membership.GetUser().ProviderUserKey.ToString();
         //web service
         private Assets.WebServices.DataHandler db = new Assets.WebServices.DataHandler();
+        private Assets.WebServices.GroupService service = new Assets.WebServices.GroupService();
 
         protected override void OnInit(EventArgs e)
         {
@@ -25,6 +26,13 @@ namespace Strikethrough.Members
                 hiddenCanvasId.Value = canvasId;
                 hiddenDataUrl.Value = dataUrl;
             }
+
+            DataTable dtGroups = service.GetSupervisorOfData(userId);
+            ddlGroups.DataSource = dtGroups;
+            ddlGroups.DataTextField = "GroupName";
+            ddlGroups.DataValueField = "GroupId";
+            ddlGroups.DataBind();
+            ddlGroups.Items.Insert(0, "Assign this whiteboard to a group");
         }
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -33,10 +41,6 @@ namespace Strikethrough.Members
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            MembershipUser currentUser = Membership.GetUser();
-            
-            //build insert
-            string userId = currentUser.ProviderUserKey.ToString();
             string canvasId = Guid.NewGuid().ToString();
             string dataUrl = hiddenDataUrl.Value;
             string label = txtCanvasName.Value;

@@ -1,0 +1,11 @@
+Student->GroupManager: Add Teacher
+GroupManager->Teacher: Notify Teacher
+Teacher-->GroupManager: Approve Student
+GroupManager->Student: Notify Student
+GroupManager->Group: Add Student to Group
+GroupManager->Student: Notify Student
+Teacher->Assignment: Create Assignment\nfor Group
+Assignment-->Group: Notify Group
+Group-->Student: Notify Student
+Student->Assignment: Submit Assignment
+Assignment-->Teacher: Notify Teacher
