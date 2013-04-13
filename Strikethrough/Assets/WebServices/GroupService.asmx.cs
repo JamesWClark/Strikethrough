@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Services;
 using Strikethrough.Assets.WebServices;
+using NUnit.Framework;
 
 namespace Strikethrough.Assets.WebServices
 {
@@ -17,6 +18,8 @@ namespace Strikethrough.Assets.WebServices
     [System.ComponentModel.ToolboxItem(false)]
     // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
     // [System.Web.Script.Services.ScriptService]
+
+    [TestFixture]
     public class GroupService : System.Web.Services.WebService
     {
         DataHandler handler;
@@ -115,5 +118,42 @@ namespace Strikethrough.Assets.WebServices
                 "AND user_UsersInGroups.GroupId = '" + groupId + "'";
             return handler.GetDataTable(select);
         }
+        #region TESTING
+        /************************ TESTING ******************************/
+
+        private string test_userId = "";
+        private int test_numGroups = 0;
+        DataHandler test_handler = new DataHandler();
+
+        [SetUp]
+        public void Test_Init()
+        {
+            //this is the NUnit test account for database operations
+            test_userId = "2E7D538B-4C62-45B5-AF40-62EE3598E926";
+            test_numGroups = 0;
+        }
+        [Test]
+        public void Test_CreateGroup()
+        {
+            string selectNumGroups = "SELECT COUNT(TeacherId) FROM user_Groups WHERE TeacherId = '" + test_userId + "'";
+
+            //should be zero
+            test_numGroups = int.Parse(test_handler.ExecuteScalar(selectNumGroups));
+            Assert.AreEqual(0, test_numGroups);
+
+            //now do an insert
+            CreateGroup(Guid.NewGuid().ToString(), "Test Group", test_userId);
+
+            //should be 1
+            test_numGroups = int.Parse(test_handler.ExecuteScalar(selectNumGroups));
+            Assert.AreEqual(1, test_numGroups);
+        }
+        [TearDown]
+        public void Test_TearDown()
+        {
+            string delete = "DELETE FROM user_Groups WHERE UserId = '" + test_userId + "'";
+            test_handler.ExecuteNonQuery(delete);
+        }
+        #endregion
     }
 }
