@@ -11,15 +11,16 @@ namespace Strikethrough.Members.Groups
 {
     public partial class Group : System.Web.UI.Page
     {
-        private string userId = Membership.GetUser().ProviderUserKey.ToString();
+        //private string userId = Membership.GetUser().ProviderUserKey.ToString();
 
         protected override void OnInit(EventArgs e)
         {
             base.OnInit(e);
             string groupId = PreviousPage.Value;
+            lblHeader.Text = PreviousPage.Key;
             GroupService service = new GroupService();
-            DataTable dtStudentsInGroup = service.GetUsersInGroup(groupId);
-            GroupFactory.BuildPlaceHolder(phUsers, dtStudentsInGroup);
+            DataTable dtStudents = service.GetUsersInGroup(groupId);
+            GroupFactory.BuildPlaceHolder(phUsers, dtStudents);
         }
         protected void Page_Load(object sender, EventArgs e)
         {

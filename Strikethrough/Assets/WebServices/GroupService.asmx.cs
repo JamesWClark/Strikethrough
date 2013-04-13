@@ -109,10 +109,10 @@ namespace Strikethrough.Assets.WebServices
         {
             handler = new DataHandler();
             string select =
-                "SELECT aspnet_Users.UserName, aspnet_Users.UserId " +
+                "SELECT aspnet_Users.UserId, aspnet_Users.UserName " +
                 "FROM user_UsersInGroups, aspnet_Users " +
                 "WHERE user_UsersInGroups.UserId = aspnet_Users.UserId " +
-                "AND user_UsersInGroups.GroupId = '761233EB-B104-4D70-9E47-A6C5DA731826'";
+                "AND user_UsersInGroups.GroupId = '" + groupId + "'";
             return handler.GetDataTable(select);
         }
     }

@@ -4,6 +4,10 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MemberHead" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MemberPlaceholder" runat="server">
+    <h3><asp:Label ID="lblHeader" runat="server" Text=""></asp:Label></h3>
+    <a href="../Whiteboard.aspx">New Assignment</a>
+    <br />
+    <br />
     <asp:Label ID="lblGroupName" runat="server"></asp:Label>
     <br />
     <br />
