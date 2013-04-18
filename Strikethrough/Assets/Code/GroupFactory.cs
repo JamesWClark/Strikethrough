@@ -75,6 +75,7 @@ namespace Strikethrough.Assets.Code
                 string id = dtGroups.Rows[i].ItemArray[0].ToString();
 
                 LinkButton b = new LinkButton();
+                b.CssClass = "dynamic-placeholder-linkbutton";
                 b.Text = name;
                 b.CommandArgument = id;
                 b.CommandName = name;

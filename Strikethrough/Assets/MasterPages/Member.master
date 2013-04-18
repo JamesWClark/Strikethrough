@@ -1,5 +1,6 @@
 ﻿<%@ Master Language="C#" MasterPageFile="~/Assets/MasterPages/Master.Master" AutoEventWireup="true" CodeBehind="Member.master.cs" Inherits="Strikethrough.Assets.MasterPages.Member" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link href="/Assets/Stylesheets/member.css" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="MemberHead" runat="server"></asp:ContentPlaceHolder>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainPlaceholder" runat="server">
@@ -7,11 +8,9 @@
         <asp:LoginStatus ID="LoginStatus1" runat="server" />
         <br />
         <br />
-        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Members/Groups/GroupManager.aspx">Group Manager</asp:HyperLink>
+        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Members/Groups/GroupManager.aspx">Group Manager</asp:HyperLink>            
         <br />
-        <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/Members/Groups/AddTeacher.aspx">Add a Teacher</asp:HyperLink>
-            
-        <br />
+        <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/Members/Whiteboard.aspx">Whiteboard</asp:HyperLink>
             
     </div>
     <br />

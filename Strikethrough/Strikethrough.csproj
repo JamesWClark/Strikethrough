@@ -76,6 +76,7 @@
     <Content Include="Assets\Scripts\jquery.mobile.structure-1.3.0.min.css" />
     <Content Include="Assets\Scripts\jquery.mobile.theme-1.3.0.min.css" />
     <Content Include="Assets\Scripts\sketch.min.js" />
+    <Content Include="Assets\Stylesheets\member.css" />
     <Content Include="Assets\Stylesheets\whiteboard.css" />
     <Content Include="Assets\WebServices\DataHandler.asmx" />
     <Content Include="Assets\WebServices\GroupService.asmx" />
@@ -335,6 +336,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Admin\Queries\" />
+    <Folder Include="Members\Profile\" />
     <Folder Include="Mobile\Assets\Stylesheets\" />
   </ItemGroup>
   <PropertyGroup>

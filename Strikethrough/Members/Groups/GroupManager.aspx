@@ -4,6 +4,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MemberPlaceholder" runat="server">
     <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Members/Groups/CreateGroup.aspx">Create a Group</asp:HyperLink>
     <br />
+    <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/Members/Groups/AddTeacher.aspx">Add a Teacher</asp:HyperLink>
+    <br />
     <br />
     <asp:Label ID="lblMessage" runat="server"></asp:Label>
     <br />

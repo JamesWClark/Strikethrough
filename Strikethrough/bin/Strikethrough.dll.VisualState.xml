@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <VisualState xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ShowCheckBoxes="false">
-  <TopNode>[0-1008]C:\Users\JWC\Documents\GitHub\Strikethrough\Strikethrough\bin\Strikethrough.dll</TopNode>
-  <SelectedNode>[0-1008]C:\Users\JWC\Documents\GitHub\Strikethrough\Strikethrough\bin\Strikethrough.dll</SelectedNode>
+  <TopNode>[0-1010]C:\Users\JWC\Documents\GitHub\Strikethrough\Strikethrough\bin\Strikethrough.dll</TopNode>
+  <SelectedNode>[0-1010]C:\Users\JWC\Documents\GitHub\Strikethrough\Strikethrough\bin\Strikethrough.dll</SelectedNode>
   <ExcludeCategories>false</ExcludeCategories>
   <Nodes>
-    <Node UniqueName="[0-1008]C:\Users\JWC\Documents\GitHub\Strikethrough\Strikethrough\bin\Strikethrough.dll" Expanded="true" />
-    <Node UniqueName="[0-1009]Strikethrough" Expanded="true" />
-    <Node UniqueName="[0-1010]Strikethrough.Developers" Expanded="true" />
-    <Node UniqueName="[0-1011]Strikethrough.Developers.NUnit" Expanded="true" />
-    <Node UniqueName="[0-1000]Strikethrough.Developers.NUnit.Test_WebService_SystemNetService" Expanded="true" />
+    <Node UniqueName="[0-1010]C:\Users\JWC\Documents\GitHub\Strikethrough\Strikethrough\bin\Strikethrough.dll" Expanded="true" />
+    <Node UniqueName="[0-1011]Strikethrough" Expanded="true" />
+    <Node UniqueName="[0-1012]Strikethrough.Assets" Expanded="true" />
+    <Node UniqueName="[0-1013]Strikethrough.Assets.WebServices" Expanded="true" />
+    <Node UniqueName="[0-1000]Strikethrough.Assets.WebServices.GroupService" Expanded="true" />
+    <Node UniqueName="[0-1014]Strikethrough.Developers" Expanded="true" />
+    <Node UniqueName="[0-1015]Strikethrough.Developers.NUnit" Expanded="true" />
+    <Node UniqueName="[0-1002]Strikethrough.Developers.NUnit.Test_WebService_SystemNetService" Expanded="true" />
   </Nodes>
 </VisualState>
