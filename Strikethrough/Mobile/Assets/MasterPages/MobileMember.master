@@ -1,7 +1,0 @@
-﻿<%@ Master Language="C#" MasterPageFile="~/Mobile/Assets/MasterPages/Mobile.Master" AutoEventWireup="true" CodeBehind="MobileMember.master.cs" Inherits="Strikethrough.Mobile.Assets.MasterPages.MobileMember" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <asp:ContentPlaceHolder ID="MemberHead" runat="server"></asp:ContentPlaceHolder>
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="MainPlaceholder" runat="server">
-    <asp:ContentPlaceHolder ID="MemberPlaceholder" runat="server"></asp:ContentPlaceHolder>
-</asp:Content>

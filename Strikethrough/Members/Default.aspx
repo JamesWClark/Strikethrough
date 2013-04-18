@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Assets/MasterPages/Member.master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Strikethrough.Members.Default" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MemberPlaceholder" runat="server">
     <asp:Button ID="btnCreateCanvas" runat="server" Text="Create New Whiteboard" PostBackUrl="~/Members/Whiteboard.aspx" />
-    <h3>Or, open an existing whiteboard:</h3>
+    <br />
     <asp:DropDownList ID="ddlOpen" runat="server" DataTextField="Label" DataValueField="CanvasId" OnInit="ddlOpen_Init" OnSelectedIndexChanged="ddlOpen_SelectedIndexChanged" AutoPostBack="True"></asp:DropDownList>
     <asp:Label ID="lblStub" runat="server" Text=""></asp:Label>
     <asp:SqlDataSource ID="dsCanvasId" runat="server"></asp:SqlDataSource>

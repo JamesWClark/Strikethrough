@@ -53,6 +53,8 @@ namespace Strikethrough.Members
 
             //execute
             db.ExecuteNonQuery(insert);
+
+            Response.Redirect("Default.aspx?msg=Canvas+saved+successfully.");
         }
     }
 }

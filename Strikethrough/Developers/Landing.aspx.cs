@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace Strikethrough.Mobile.Assets.MasterPages
+namespace Strikethrough.Developers
 {
-    public partial class Mobile : System.Web.UI.MasterPage
+    public partial class Landing : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
