@@ -26,9 +26,21 @@ namespace Strikethrough.Assets.Code
             handler.ExecuteNonQuery(insert);
         }
         //first column is the key, and second is the value, such as groupid/groupname or userid/username
-        public static void BuildPlaceHolder(PlaceHolder placeHolder, DataTable groupTable)
+        public static void BuildPlaceHolder(PlaceHolder placeHolder, DataTable table)
         {
-            BuildListButtons(placeHolder, groupTable);
+            for (int i = 0; i < table.Rows.Count; i++)
+            {
+                string name = table.Rows[i].ItemArray[1].ToString();
+                string id = table.Rows[i].ItemArray[0].ToString();
+
+                LinkButton b = new LinkButton();
+                b.CssClass = "dynamic-placeholder-linkbutton";
+                b.Text = name;
+                b.CommandArgument = id;
+                b.CommandName = name;
+
+                placeHolder.Controls.Add(b);
+            }
         }
         public static void BuildStudentProspectTable(Table table, string userId)
         {

@@ -22,7 +22,7 @@ namespace Strikethrough.Members
         protected void btnCreate_Click(object sender, EventArgs e)
         {
             GroupFactory.CreateGroup(txtGroupName.Text, userId);
-            Response.Redirect("GroupManager.aspx?created=true");
+            Response.Redirect("../Default.aspx");
         }
     }
 }

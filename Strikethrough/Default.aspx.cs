@@ -9,10 +9,12 @@ namespace Strikethrough
 {
     public partial class Default : System.Web.UI.Page
     {
-        protected void Page_PreInit(object sender, EventArgs e)
+        protected override void OnInit(EventArgs e)
         {
-            if (Request.Browser.IsMobileDevice)
-                Response.Redirect("~/Mobile/Default.aspx");
+            base.OnInit(e);
+            if (User.Identity.IsAuthenticated == true)
+                Response.Redirect("~/Members/Default.aspx");
+
         }
         protected void Page_Load(object sender, EventArgs e)
         {

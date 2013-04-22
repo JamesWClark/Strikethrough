@@ -20,8 +20,15 @@ namespace Strikethrough.Members.Groups
 
         protected void btnAddTeacher_Click(object sender, EventArgs e)
         {
-            GroupFactory.SubscribeToTeacher(txtTeacherEmail.Text, userId);
-            Response.Redirect("GroupManager.aspx?created=true"); //web service is catching errors, so this may actuall say true when in fact it fails
+            try
+            {
+                GroupFactory.SubscribeToTeacher(txtTeacherEmail.Text, userId);
+                Response.Redirect("../Default.aspx"); //web service is catching errors, so this may actuall say true when in fact it fails
+            }
+            catch (NullReferenceException)
+            {
+                lblMessage.Text = "Teacher not found.";
+            }
         }
     }
 }

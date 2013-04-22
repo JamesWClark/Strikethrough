@@ -1,15 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Assets/MasterPages/Master.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Strikethrough.Default" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link href="Assets/Stylesheets/member.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainPlaceholder" runat="server">
-    <asp:LoginView ID="LoginView1" runat="server">
-        <AnonymousTemplate>
-            <h3>Welcome, <a href="Account/Login.aspx">Login</a></h3>
-            <h3>Don&#39;t have an account? <a href="Account/Register.aspx">Register</a></h3>
-        </AnonymousTemplate>
-        <LoggedInTemplate>
-            <h3>Welcome, <asp:LoginName ID="LoginName1" runat="server" />. Not you? <asp:LoginStatus ID="LoginStatus2" runat="server" /></h3>
-            <h3><a href="Members/Default.aspx">Go to Whiteboard</a></h3>
-        </LoggedInTemplate>
-    </asp:LoginView>
+    <div style="text-align:center;"><img src="Assets/Images/home.png" /></div>
+    <br />
+    <div style="text-align:center;">
+        <div class="button-wrapper"><asp:Button ID="btnLogin" runat="server" Text="Login" PostBackUrl="~/Account/Login.aspx" /></div>
+        <div class="button-wrapper"><asp:Button ID="btnRegister" runat="server" Text="Register" PostBackUrl="~/Account/Register.aspx" /></div>
+    </div>
 </asp:Content>

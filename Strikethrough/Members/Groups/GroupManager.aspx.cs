@@ -13,8 +13,6 @@ namespace Strikethrough.Members
 {
     public partial class GroupManager : System.Web.UI.Page
     {
-        private string key;
-        private string value;
         private string userId = Membership.GetUser().ProviderUserKey.ToString();
 
         #region Presentation Layer
@@ -101,13 +99,19 @@ namespace Strikethrough.Members
         }
         private void LinkButton_Click(object sender, CommandEventArgs e)
         {
-            this.key = e.CommandName.ToString();
-            this.value = e.CommandArgument.ToString();
+            Session["Key"] = e.CommandName.ToString();
+            Session["Value"] = e.CommandArgument.ToString();
+
+            //this.key = e.CommandName.ToString();
+            //this.value = e.CommandArgument.ToString();
         }
 
         #endregion
 
         #region Page Properties
+
+        //try session first
+        /*
         //these are generic key value properties useful for passing a LinkButton name/argument pair to the requested page
         public string Key
         {
@@ -123,6 +127,7 @@ namespace Strikethrough.Members
                 return value;
             }
         }
+         */
         #endregion
     }
 }

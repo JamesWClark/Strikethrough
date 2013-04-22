@@ -16,8 +16,8 @@ namespace Strikethrough.Members.Groups
         protected override void OnInit(EventArgs e)
         {
             base.OnInit(e);
-            string groupId = PreviousPage.Value;
-            lblHeader.Text = PreviousPage.Key;
+            string groupId = (string)Session["Value"];
+            lblHeader.Text = (string)Session["Key"];
             GroupService service = new GroupService();
             DataTable dtStudents = service.GetUsersInGroup(groupId);
             GroupFactory.BuildPlaceHolder(phUsers, dtStudents);

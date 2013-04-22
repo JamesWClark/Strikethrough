@@ -11,7 +11,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="Account/Login.aspx">
-      <publishTime>04/13/2013 02:39:14</publishTime>
+      <publishTime>04/21/2013 18:53:12</publishTime>
     </File>
     <File Include="Account/RecoverPassword.aspx">
       <publishTime>04/11/2013 21:46:19</publishTime>
@@ -25,14 +25,17 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Admin/Web.config">
       <publishTime>03/27/2013 17:16:42</publishTime>
     </File>
+    <File Include="Assets/Images/home.png">
+      <publishTime>04/19/2013 22:29:33</publishTime>
+    </File>
     <File Include="Assets/MasterPages/Master.Master">
-      <publishTime>04/07/2013 04:37:40</publishTime>
+      <publishTime>04/20/2013 01:40:17</publishTime>
     </File>
     <File Include="Assets/MasterPages/Member.master">
-      <publishTime>04/10/2013 18:25:59</publishTime>
+      <publishTime>04/20/2013 14:03:58</publishTime>
     </File>
     <File Include="Assets/MasterPages/Whiteboard.master">
-      <publishTime>03/27/2013 00:05:35</publishTime>
+      <publishTime>04/20/2013 13:49:03</publishTime>
     </File>
     <File Include="Assets/Scripts/images/ajax-loader.gif">
       <publishTime>03/27/2013 00:05:35</publishTime>
@@ -67,8 +70,14 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Assets/Scripts/sketch.min.js">
       <publishTime>03/27/2013 00:05:36</publishTime>
     </File>
+    <File Include="Assets/Stylesheets/member.css">
+      <publishTime>04/20/2013 01:45:34</publishTime>
+    </File>
     <File Include="Assets/Stylesheets/whiteboard.css">
       <publishTime>04/12/2013 22:22:37</publishTime>
+    </File>
+    <File Include="Assets/WebServices/CanvasService.asmx">
+      <publishTime>04/19/2013 22:15:08</publishTime>
     </File>
     <File Include="Assets/WebServices/DataHandler.asmx">
       <publishTime>03/27/2013 00:05:36</publishTime>
@@ -79,6 +88,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Assets/WebServices/SystemNetService.asmx">
       <publishTime>03/27/2013 00:05:36</publishTime>
     </File>
+    <File Include="Assets/WebServices/WebControlService.asmx">
+      <publishTime>04/21/2013 16:46:02</publishTime>
+    </File>
     <File Include="bin/Newtonsoft.Json.dll">
       <publishTime>03/27/2013 17:16:43</publishTime>
     </File>
@@ -86,10 +98,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/22/2012 22:16:32</publishTime>
     </File>
     <File Include="bin/Strikethrough.dll">
-      <publishTime>04/13/2013 02:07:54</publishTime>
+      <publishTime>04/21/2013 19:05:21</publishTime>
     </File>
     <File Include="Default.aspx">
-      <publishTime>04/11/2013 21:46:19</publishTime>
+      <publishTime>04/20/2013 01:45:00</publishTime>
+    </File>
+    <File Include="Developers/Landing.aspx">
+      <publishTime>04/18/2013 19:08:49</publishTime>
     </File>
     <File Include="Developers/Net.aspx">
       <publishTime>03/27/2013 17:16:43</publishTime>
@@ -110,7 +125,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/27/2013 00:05:36</publishTime>
     </File>
     <File Include="Members/Default.aspx">
-      <publishTime>04/07/2013 19:28:49</publishTime>
+      <publishTime>04/21/2013 18:58:14</publishTime>
     </File>
     <File Include="Members/Groups/AddStudents.aspx">
       <publishTime>04/12/2013 18:32:57</publishTime>
@@ -119,13 +134,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/10/2013 18:25:59</publishTime>
     </File>
     <File Include="Members/Groups/CreateGroup.aspx">
-      <publishTime>04/08/2013 03:39:14</publishTime>
+      <publishTime>04/21/2013 18:26:22</publishTime>
     </File>
     <File Include="Members/Groups/Group.aspx">
       <publishTime>04/12/2013 21:26:06</publishTime>
     </File>
     <File Include="Members/Groups/GroupManager.aspx">
-      <publishTime>04/11/2013 21:46:19</publishTime>
+      <publishTime>04/18/2013 00:58:46</publishTime>
     </File>
     <File Include="Members/Web.config">
       <publishTime>03/27/2013 00:05:36</publishTime>
@@ -167,7 +182,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/27/2013 00:05:36</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>04/13/2013 02:40:28</publishTime>
+      <publishTime>04/21/2013 19:05:21</publishTime>
     </File>
   </ItemGroup>
 </Project>

@@ -17,7 +17,9 @@ namespace Strikethrough.Members
         protected override void OnInit(EventArgs e)
         {
             base.OnInit(e);
-            string canvasId = Request.QueryString["CanvasId"];
+
+            string canvasId = (string)Session["Value"];
+            //lblMessage.Text = canvasId; //stub
 
             if (canvasId != null)
             {

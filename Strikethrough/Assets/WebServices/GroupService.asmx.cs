@@ -37,6 +37,27 @@ namespace Strikethrough.Assets.WebServices
             handler.ExecuteNonQuery(insert);
         }
         [WebMethod]
+        public DataTable GetTable(string userId, string tableId)
+        {
+            handler = new DataHandler();
+            string select;
+
+            switch (tableId)
+            {
+                case "supervisorOf":
+                    select = "SELECT * FROM user_Groups WHERE TeacherId = '" + userId + "'";
+                    return handler.GetDataTable(select);
+                case "memberOf":
+                    select =
+                        "SELECT * FROM user_Groups, user_UsersInGroups " + 
+                        "WHERE user_UsersInGroups.UserId = '" + userId + "' " + 
+                        "AND user_Groups.GroupId = user_Groups.GroupId";
+                    return handler.GetDataTable(select);
+            }
+
+            return null;
+        }
+        [WebMethod]
         public DataTable GetSupervisorOfData(string UserId)
         {
             handler = new DataHandler();
