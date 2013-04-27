@@ -88,6 +88,7 @@
     <Content Include="Default.aspx" />
     <Content Include="Developers\Landing.aspx" />
     <Content Include="Developers\Net.aspx" />
+    <Content Include="Developers\notes.txt" />
     <Content Include="error.jpg" />
     <Content Include="ErrorPage.aspx" />
     <Content Include="Global.asax" />
