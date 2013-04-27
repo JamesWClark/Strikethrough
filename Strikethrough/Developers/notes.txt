@@ -1,0 +1,11 @@
+﻿sandra
+becca
+jwclark
+peter
+reba
+
+sandra teaches becca
+
+becca teaches reba, peter, jwclark
+
+jwclark teaches reba, peter
