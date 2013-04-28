@@ -20,16 +20,6 @@ namespace Strikethrough
 
         }
 
-        protected void btnCreateAccount_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("Register.aspx");
-        }
-
-        protected void btnForgotPassword_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("RecoverPassword.aspx");
-        }
-
         protected void btnCancel_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Default.aspx");
