@@ -18,9 +18,13 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainPlaceholder" runat="server">
     <asp:Login ID="Login1" runat="server" DisplayRememberMe="False" DestinationPageUrl="~/Members/Default.aspx" PasswordLabelText="" TitleText="" UserNameLabelText="" Width="100%"></asp:Login>
     <br />
-    <a href="Register.aspx">Create an account</a>
     <br />
-    <a href="RecoverPassword.aspx">I forgot my password</a><br />
+    <br />
+    <br />
+    <asp:Button ID="btnCreateAccount" runat="server" OnClick="btnCreateAccount_Click" Text="Register" />
+    <asp:Button ID="btnForgotPassword" runat="server" OnClick="btnForgotPassword_Click" Text="Forgot Password" />
+    <asp:Button ID="btnCancel" runat="server" Text="Cancel" OnClick="btnCancel_Click" />
+    <br />
     <br />
     <asp:Label ID="lblStub" runat="server" Text=""></asp:Label>
 </asp:Content>

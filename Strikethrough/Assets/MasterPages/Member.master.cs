@@ -13,5 +13,10 @@ namespace Strikethrough.Assets.MasterPages
         {
 
         }
+
+        protected void LinkButton1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/Members/Default.aspx");
+        }
     }
 }

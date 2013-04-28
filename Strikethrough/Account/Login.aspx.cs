@@ -9,19 +9,30 @@ namespace Strikethrough
 {
     public partial class Login : System.Web.UI.Page
     {
+        protected override void OnInit(EventArgs e)
+        {
+            base.OnInit(e);
+            if (User.Identity.IsAuthenticated == true)
+                Response.Redirect("~/Members/Default.aspx");
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
-            // Ensure that if Forms Authentication forces a mobile user 
-            // to log in, we display the mobile login page
-            string returnUrl = Request.QueryString["ReturnUrl"];
-            if (!String.IsNullOrEmpty(returnUrl) && returnUrl.StartsWith("/Mobile/",
-                                                    StringComparison.OrdinalIgnoreCase))
-            {
-                Response.Redirect("~/Mobile/Login.aspx?ReturnUrl="
-                                  + HttpUtility.UrlEncode(returnUrl));
-            }
 
-            //RegisterHyperLink.NavigateUrl = "Register.aspx?ReturnUrl=" + HttpUtility.UrlEncode(returnUrl); //RegisterHyperLink is just the ID of a HyperLink control
+        }
+
+        protected void btnCreateAccount_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Register.aspx");
+        }
+
+        protected void btnForgotPassword_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("RecoverPassword.aspx");
+        }
+
+        protected void btnCancel_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Default.aspx");
         }
     }
 }

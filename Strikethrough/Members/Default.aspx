@@ -5,9 +5,9 @@
         <div data-role="collapsible">
             <h3>Groups</h3>
             <div style="text-align:center;">
-                <div class="button-wrapper"><asp:Button ID="btnCreateGroup" runat="server" Text="Create Group" PostBackUrl="Groups/CreateGroup.aspx" /></div>
+                <div class="button-wrapper"><asp:Button data-theme="b" ID="btnCreateGroup" runat="server" Text="Create Group" PostBackUrl="Groups/CreateGroup.aspx" /></div>
                 &nbsp;
-                <div class="button-wrapper"><asp:Button ID="btnAddTeacher" runat="server" Text="Add Teacher" PostBackUrl="Groups/AddTeacher.aspx" /></div>
+                <div class="button-wrapper"><asp:Button data-theme="b" ID="btnAddTeacher" runat="server" Text="Add Teacher" PostBackUrl="Groups/AddTeacher.aspx" /></div>
             </div>
             <br />
             <asp:Label ID="lblSupervisorOf" runat="server" Text=""></asp:Label>
@@ -20,7 +20,7 @@
         </div>
         <div data-role="collapsible">
             <h3>Whiteboards</h3>
-            <asp:Button ID="btnCreateWhiteboard" runat="server" Text="Create a New Whiteboard" PostBackUrl="~/Members/Whiteboard.aspx" />
+            <asp:Button data-theme="b" ID="btnCreateWhiteboard" runat="server" Text="Create a New Whiteboard" PostBackUrl="~/Members/Whiteboard.aspx" />
             <asp:PlaceHolder ID="phWhiteboards" runat="server"></asp:PlaceHolder>
         </div>
         <div data-role="collapsible">
