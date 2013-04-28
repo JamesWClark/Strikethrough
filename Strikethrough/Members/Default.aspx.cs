@@ -30,6 +30,12 @@ namespace Strikethrough.Members
             CanvasService canvasService = new CanvasService();
             DataTable dtWhiteboards = canvasService.GetTable(userId, "whiteboard");
             wcs.BuildPlaceHolder(phWhiteboards, dtWhiteboards);
+
+            //Notifications
+            NotifcationService notificationService = new NotifcationService();
+            DataTable dtProspectiveStudents = notificationService.GetProspectiveStudentsData(userId);
+            wcs.BuildPlaceHolder
+            
         }
         protected void Page_Load(object sender, EventArgs e)
         {

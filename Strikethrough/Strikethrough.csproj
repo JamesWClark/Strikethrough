@@ -83,6 +83,7 @@
     <Content Include="Assets\WebServices\CanvasService.asmx" />
     <Content Include="Assets\WebServices\DataHandler.asmx" />
     <Content Include="Assets\WebServices\GroupService.asmx" />
+    <Content Include="Assets\WebServices\NotifcationService.asmx" />
     <Content Include="Assets\WebServices\SystemNetService.asmx" />
     <Content Include="Assets\WebServices\WebControlService.asmx" />
     <Content Include="Default.aspx" />
@@ -158,6 +159,10 @@
     </Compile>
     <Compile Include="Assets\WebServices\GroupService.asmx.cs">
       <DependentUpon>GroupService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Assets\WebServices\NotifcationService.asmx.cs">
+      <DependentUpon>NotifcationService.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Assets\WebServices\SystemNetService.asmx.cs">
