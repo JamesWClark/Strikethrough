@@ -25,6 +25,10 @@
         </div>
         <div data-role="collapsible">
             <h3>Notifications</h3>
+            <asp:Label ID="lblHasProspectiveStudents" runat="server" Text=""></asp:Label>
+            <br />
+            <asp:LinkButton ID="btnAddStudents" runat="server" Text="See who added you" Visible="False" OnClick="btnAddStudents_Click"></asp:LinkButton>
+            <br />
             <asp:PlaceHolder ID="phNotifications" runat="server"></asp:PlaceHolder>
         </div>
     </div>

@@ -33,8 +33,8 @@ namespace Strikethrough.Members
 
             //Notifications
             NotifcationService notificationService = new NotifcationService();
-            DataTable dtProspectiveStudents = notificationService.GetProspectiveStudentsData(userId);
-            wcs.BuildPlaceHolder
+            //DataTable dtProspectiveStudents = notificationService.GetProspectiveStudentsData(userId);
+            
             
         }
         protected void Page_Load(object sender, EventArgs e)
@@ -44,7 +44,7 @@ namespace Strikethrough.Members
         }
         private void LoadLabels()
         {
-            GroupService service = new GroupService();
+            GroupService groupService = new GroupService();
 
             //see if this is redirected with a query string, display a message if yes
             bool hasMessage = false;
@@ -70,13 +70,16 @@ namespace Strikethrough.Members
                 lblHasTeachers.Text = "You added the following teachers: ";
             else
                 lblHasTeachers.Text = "You have not added any teachers.";
+                         * */
 
             //hasPropsectiveStudent
-            if (service.GetProspectiveStudentCount(userId) > 0)
-                lblHasProspectiveStudents.Text = "You have prospective students.<br /><a href='AddStudents.aspx'>See who added you</a>";
+            if (groupService.GetProspectiveStudentCount(userId) > 0)
+            {
+                lblHasProspectiveStudents.Text = "You have prospective students.";
+                btnAddStudents.Visible = true;
+            }
             else
                 lblHasProspectiveStudents.Text = "No students have added you";
-             * */
 
         }
         private void RegisterEvents()
@@ -122,6 +125,11 @@ namespace Strikethrough.Members
         {
             Session["Key"] = e.CommandName.ToString(); //should be a label of sorts
             Session["Value"] = e.CommandArgument.ToString(); //should be a GUID
+        }
+
+        protected void btnAddStudents_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Members/Groups/AddStudents.aspx");
         }
     }
 }
