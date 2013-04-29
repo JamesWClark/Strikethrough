@@ -85,6 +85,24 @@ namespace Strikethrough.Members {
         protected global::System.Web.UI.WebControls.PlaceHolder phWhiteboards;
         
         /// <summary>
+        /// lblHasProspectiveStudents control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblHasProspectiveStudents;
+        
+        /// <summary>
+        /// btnAddStudents control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnAddStudents;
+        
+        /// <summary>
         /// phNotifications control.
         /// </summary>
         /// <remarks>

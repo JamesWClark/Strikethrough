@@ -28,7 +28,7 @@ namespace Strikethrough.Members.Groups
         protected void btnSave_Click(object sender, EventArgs e)
         {
             GroupFactory.AssignProspectsToGroups(tblProspectiveStudents, userId);
-            Response.Redirect("GroupManager.aspx?created=true"); //web service is catching errors, so this may actuall say true when in fact it fails
+            Response.Redirect("~/Members/Default.aspx"); 
         }
     }
 }
