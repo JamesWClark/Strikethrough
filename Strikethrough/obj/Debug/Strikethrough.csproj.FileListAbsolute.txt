@@ -30,3 +30,10 @@ C:\Users\JWC\Documents\Git\Sammy\Strikethrough\bin\nunit.framework.xml
 C:\Users\JWC\Documents\Git\Sammy\Strikethrough\obj\Debug\Strikethrough.csprojResolveAssemblyReference.cache
 C:\Users\JWC\Documents\Git\Sammy\Strikethrough\obj\Debug\Strikethrough.dll
 C:\Users\JWC\Documents\Git\Sammy\Strikethrough\obj\Debug\Strikethrough.pdb
+C:\git\James\Strikethrough\bin\Strikethrough.dll
+C:\git\James\Strikethrough\bin\Strikethrough.pdb
+C:\git\James\Strikethrough\bin\nunit.framework.dll
+C:\git\James\Strikethrough\bin\nunit.framework.xml
+C:\git\James\Strikethrough\obj\Debug\Strikethrough.csprojResolveAssemblyReference.cache
+C:\git\James\Strikethrough\obj\Debug\Strikethrough.dll
+C:\git\James\Strikethrough\obj\Debug\Strikethrough.pdb
