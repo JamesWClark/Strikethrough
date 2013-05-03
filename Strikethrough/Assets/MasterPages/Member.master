@@ -8,7 +8,7 @@
 
     <div>
         <div data-theme="a" data-role="header">
-            <asp:LinkButton data-theme="b" ID="LinkButton1" runat="server" OnClick="LinkButton1_Click">Home</asp:LinkButton>
+            <asp:LinkButton data-theme="b" ID="LinkButton1" runat="server" OnClick="LinkButton1_Click" CausesValidation="False">Home</asp:LinkButton>
             <h1>Strikethrough</h1>
             <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutPageUrl="~/Default.aspx" data-theme="b" LogoutAction="Redirect" />
             <!-- <a href="#" data-icon="gear" class="ui-btn-right">Options</a>  -->
