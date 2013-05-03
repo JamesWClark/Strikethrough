@@ -1,8 +1,10 @@
 ﻿
+/* check out http://jsbin.com/azivip/2/edit */
 #canvas-container {
-    height:400px;
-    width:600px;
     position:relative;
+    bottom:0px;
+    width:100%;
+    height:100%;
 }
 canvas {
     /* canvas height and width must be set by javascript or by element attribute code */

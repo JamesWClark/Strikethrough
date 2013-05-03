@@ -19,6 +19,7 @@
         var z = 1; //used for z-index. seems unnecessary, but i'm retaining this implementation b/c it's possible that later i will be looping multiple layers.
         var canvasHeight = 300; //1056;
         var canvasWidth = 200; //816;
+        //height tip: http://jsfiddle.net/PQS3A/7/
 
         $(window).load(new function () {
             $('#canvas-container').css("width", canvasWidth);
