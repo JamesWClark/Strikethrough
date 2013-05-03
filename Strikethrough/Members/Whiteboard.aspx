@@ -8,7 +8,7 @@
     <h3><asp:RequiredFieldValidator ID="rfvCanvasName" runat="server" ControlToValidate="txtCanvasName" ErrorMessage="This is a required field." SetFocusOnError="True"></asp:RequiredFieldValidator></h3>
 
     <div id="canvas-container" style="width:100%; height:100%;">
-        <canvas id="base-canvas" width="600" height="400" style="z-index: 0;"></canvas>
+        <canvas id="base-canvas" style="z-index: 0;"></canvas>
     </div>
 
     <h3><asp:Label ID="lblMessage" runat="server" Text=""></asp:Label></h3>
@@ -19,6 +19,15 @@
         var z = 1; //used for z-index. seems unnecessary, but i'm retaining this implementation b/c it's possible that later i will be looping multiple layers.
         var canvasHeight = 100;
         var canvasWidth = 100;
+        //height tip: http://jsfiddle.net/PQS3A/7/
+
+        $(window).load(new function () {
+            $('#canvas-container').css("width", canvasWidth);
+            $('#canvas-container').css("height", canvasHeight);
+            $('#base-canvas').attr("width", canvasWidth);
+            $('#base-canvas').attr("height", canvasHeight);
+        });
+
 
         if ($("#MainPlaceholder_MemberPlaceholder_WhiteboardPlaceholder_hiddenDataUrl").attr('value')) {
             var src = $("#MainPlaceholder_MemberPlaceholder_WhiteboardPlaceholder_hiddenDataUrl").val();
