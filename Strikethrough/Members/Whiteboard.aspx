@@ -2,12 +2,12 @@
 <%@ OutputCache VaryByParam="*" Duration="60" VaryByCustom="isMobileDevice" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="WhiteboardPlaceholder" runat="server">
 
-    <asp:Button ID="btnSave" runat="server" Text="Save This Whiteboard" OnClientClick="setHiddenCanvasDataUrl()" OnClick="btnSave_Click" />   
+    <asp:Button ID="btnSave" data-theme="b" runat="server" Text="Save This Whiteboard" OnClientClick="setHiddenCanvasDataUrl()" OnClick="btnSave_Click" />   
     <input style="text-align:center;" name="" id="txtCanvasName" placeholder="Name your whiteboard" value="" runat="server" type="text" autocomplete="off" /> 
     <asp:DropDownList ID="ddlGroups" runat="server"></asp:DropDownList>
     <h3><asp:RequiredFieldValidator ID="rfvCanvasName" runat="server" ControlToValidate="txtCanvasName" ErrorMessage="This is a required field." SetFocusOnError="True"></asp:RequiredFieldValidator></h3>
 
-    <div id="canvas-container" style="width:100%; height:100%;">
+    <div id="canvas-container" style="border:solid 1px red">
         <canvas id="base-canvas" style="z-index: 0;"></canvas>
     </div>
 
@@ -17,17 +17,16 @@
 
     <script type="text/javascript">
         var z = 1; //used for z-index. seems unnecessary, but i'm retaining this implementation b/c it's possible that later i will be looping multiple layers.
-        var canvasHeight = 100;
+        var canvasHeight = 200; //($(window).height() - $(this).find('[data-role="header"]').height() - $(this).find('[data-role="footer"]').height());
         var canvasWidth = 100;
         //height tip: http://jsfiddle.net/PQS3A/7/
 
         $(window).load(new function () {
             $('#canvas-container').css("width", canvasWidth);
             $('#canvas-container').css("height", canvasHeight);
-            $('#base-canvas').attr("width", canvasWidth);
-            $('#base-canvas').attr("height", canvasHeight);
+            $('#base-canvas').attr("width", $('#canvas-container').innerWidth);
+            $('#base-canvas').attr("height", $('#canvas-container').innerHeight);
         });
-
 
         if ($("#MainPlaceholder_MemberPlaceholder_WhiteboardPlaceholder_hiddenDataUrl").attr('value')) {
             var src = $("#MainPlaceholder_MemberPlaceholder_WhiteboardPlaceholder_hiddenDataUrl").val();
