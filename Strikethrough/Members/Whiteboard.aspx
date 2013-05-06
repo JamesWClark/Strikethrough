@@ -1,9 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Assets/MasterPages/Whiteboard.master" AutoEventWireup="true" CodeBehind="Whiteboard.aspx.cs" Inherits="Strikethrough.Members.Whiteboard" %>
 <%@ OutputCache VaryByParam="*" Duration="60" VaryByCustom="isMobileDevice" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="WhiteboardPlaceholder" runat="server">
-
 <div data-role="header" data-theme="a">
     <asp:LinkButton data-theme="b" ID="LinkButton1" runat="server" OnClick="LinkButton1_Click" CausesValidation="False">Home</asp:LinkButton>
+    <h1>Strikethrough</h1>
     <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutPageUrl="~/Default.aspx" data-theme="b" LogoutAction="Redirect" />
     <div style="text-align:center;">
     <fieldset data-role="controlgroup" data-type="horizontal">
@@ -15,7 +15,6 @@
         <a id="weight2" data-role="button">2</a>
         <a id="weight3" data-role="button">3</a>
         <a id="eraser" data-size="35" data-tool="eraser" data-role="button">Erase</a>
-        <asp:Button href="SaveCanvas.aspx" data-transition="flip" data-rel="dialog" ID="btnSave" runat="server" Text="Save" />
     </fieldset>
     </div>
 </div>
@@ -28,6 +27,7 @@
 
 <div data-role="footer" class="bottom-footer">
     <div id="footer-controls" style="text-align:center;">
+        <span style="display:inline-block;"><a id="btnTrash" data-role="button">Delete</a></span>
         <span style="display:inline-block;"><a id="btnGoToPrevious" data-role="button">&lt;</a></span>  
         <span style="display:inline-block;"><a id="btnRemovePage" data-role="button">-</a></span>              
         <span id="currentPage" style="display:inline-block;">1</span>
@@ -35,6 +35,7 @@
         <span id="totalPages" style="display:inline-block;">1</span>
         <span style="display:inline-block;"><a id="btnAddPage" data-role="button">+</a></span>
         <span style="display:inline-block;"><a id="btnGoToNext" data-role="button">&gt;</a></span>
+        <span style="display:inline-block;"><asp:Button ID="btnSave" runat="server" Text="Save" /></span>
     </div>
 </div>
 
@@ -43,6 +44,7 @@
     <input type="hidden" id="hiddenCanvasId" runat="server" />
 </div>
 
+<!-- ## SCRIPTS ## -->
 <script type="text/javascript">
     //variables
     var divH; //container div height
@@ -134,7 +136,6 @@
         $('#eraser').attr('href', id);
         $('#weight1').click();
     }
-    //events
     $(document).ready(new function () {
         //initialize variables
         divH = $('#canvas-container').height(); //container div height
@@ -163,11 +164,11 @@
 
         registerButtons();
     });
+    //events
     $('#btnAddPage').click(addPage);
     $('#btnRemovePage').click(removePage);
     $('#btnGoToPrevious').click(goToPrevious);
     $('#btnGoToNext').click(goToNext);
 
 </script>
-
 </asp:Content>
