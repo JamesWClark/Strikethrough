@@ -1,7 +1,6 @@
 ﻿
+/* check out http://jsbin.com/azivip/2/edit */
 #canvas-container {
-    height:400px;
-    width:600px;
     position:relative;
 }
 canvas {

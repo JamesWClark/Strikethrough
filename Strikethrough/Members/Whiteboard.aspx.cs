@@ -8,7 +8,7 @@ using System.Web.UI.WebControls;
 namespace Strikethrough.Members
 {
     public partial class Whiteboard : System.Web.UI.Page
-    {
+    {/*
         private string userId = Membership.GetUser().ProviderUserKey.ToString();
         //web service
         private Assets.WebServices.DataHandler db = new Assets.WebServices.DataHandler();
@@ -40,23 +40,17 @@ namespace Strikethrough.Members
         {
 
         }
-
+              */
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            string canvasId = Guid.NewGuid().ToString();
-            string dataUrl = hiddenDataUrl.Value;
-            string label = txtCanvasName.Value;
 
-            string insert = "INSERT INTO user_Canvas (CanvasId, UserId, DataUrl, Label) VALUES ('"
-                + canvasId + "','"
-                + userId + "','"
-                + dataUrl + "','"
-                + label + "')";
+        }
+    
 
-            //execute
-            db.ExecuteNonQuery(insert);
 
-            Response.Redirect("Default.aspx?msg=Canvas+saved+successfully.");
+        protected void LinkButton1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/Members/Default.aspx");
         }
     }
 }

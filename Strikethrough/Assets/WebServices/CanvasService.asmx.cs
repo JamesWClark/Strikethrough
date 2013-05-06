@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Web;
+using System.Web.Script.Services;
 using System.Web.Services;
 using System.Web.UI;
 using Strikethrough.Assets.WebServices;
@@ -35,6 +36,29 @@ namespace Strikethrough.Assets.WebServices
                     return handler.GetDataTable(query);
             }
             return null;
+        }
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public double GetRelativeWidth(int pixelHeight, string paperType)
+        {
+            switch (paperType)
+            {
+                case "letter":
+                    return 0.772727273 * pixelHeight;
+                default:
+                    return 0.772727273 * pixelHeight;
+            }
+        }
+        [WebMethod]
+        public double GetRelativeHeight(int pixelWidth, string paperType)
+        {
+            switch (paperType)
+            {
+                case "letter":
+                    return pixelWidth / 0.772727273;
+                default:
+                    return pixelWidth / 0.772727273;
+            }
         }
     }
 }
