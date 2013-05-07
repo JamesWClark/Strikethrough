@@ -89,12 +89,9 @@
     <Content Include="Assets\WebServices\SystemNetService.asmx" />
     <Content Include="Assets\WebServices\WebControlService.asmx" />
     <Content Include="Default.aspx" />
-    <Content Include="Developers\index.html" />
     <Content Include="Developers\joe-notes.txt" />
-    <Content Include="Developers\Landing.aspx" />
     <Content Include="Developers\Net.aspx" />
     <Content Include="Developers\notes.txt" />
-    <Content Include="Developers\page1.html" />
     <Content Include="error.jpg" />
     <Content Include="ErrorPage.aspx" />
     <Content Include="Global.asax" />
@@ -184,13 +181,6 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Developers\Landing.aspx.cs">
-      <DependentUpon>Landing.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Developers\Landing.aspx.designer.cs">
-      <DependentUpon>Landing.aspx</DependentUpon>
     </Compile>
     <Compile Include="Developers\Net.aspx.cs">
       <DependentUpon>Net.aspx</DependentUpon>

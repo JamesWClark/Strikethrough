@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="WhiteboardPlaceholder" runat="server">
 <div data-role="header" data-theme="a">
     <asp:LinkButton data-theme="b" ID="LinkButton1" runat="server" OnClick="LinkButton1_Click" CausesValidation="False">Home</asp:LinkButton>
-    <h1>Strikethrough</h1>
+    <h1><asp:Label ID="lblHeader" runat="server" Text="Strikethrough"></asp:Label></h1>
     <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutPageUrl="~/Default.aspx" data-theme="b" LogoutAction="Redirect" />
     <div style="text-align:center;">
     <fieldset data-role="controlgroup" data-type="horizontal">
@@ -35,13 +35,13 @@
         <span id="totalPages" style="display:inline-block;">1</span>
         <span style="display:inline-block;"><a id="btnAddPage" data-role="button">+</a></span>
         <span style="display:inline-block;"><a id="btnGoToNext" data-role="button">&gt;</a></span>
-        <span style="display:inline-block;"><asp:Button ID="btnSave" runat="server" Text="Save" /></span>
+        <span style="display:inline-block;"><asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" OnClientClick="setDomCanvasUrls()" /></span>
     </div>
 </div>
 
-<div id="hidden-section">
-    <input type="hidden" id="hiddenDataUrl" runat="server" />
+<div id="hidden-section" style="visibility:hidden">
     <input type="hidden" id="hiddenCanvasId" runat="server" />
+    <input type="hidden" id="documentJSON" value="" runat="server" />
 </div>
 
 <!-- ## SCRIPTS ## -->
@@ -113,7 +113,6 @@
         hidePages(); //hide all pages 
         $(currentCanvas).show(); //show current page
         registerButtons();
-
     }
     function hidePages() {
         //hide all pages
@@ -136,6 +135,18 @@
         $('#eraser').attr('href', id);
         $('#weight1').click();
     }
+    function setDomCanvasUrls() {
+        //pages of the document, parsing to base 64 and storing in DOM for .NET to store in session
+        var data = {};
+        $('#canvas-container').children().each(function () {
+            var canvas = $(this)[0];
+            var id = $(canvas).attr('id');
+            var dataUrl = canvas.toDataURL();
+            data[id] = dataUrl;
+        });
+        $('#MainPlaceholder_WhiteboardPlaceholder_documentJSON').val(data);
+    }
+    //events
     $(document).ready(new function () {
         //initialize variables
         divH = $('#canvas-container').height(); //container div height
@@ -164,7 +175,6 @@
 
         registerButtons();
     });
-    //events
     $('#btnAddPage').click(addPage);
     $('#btnRemovePage').click(removePage);
     $('#btnGoToPrevious').click(goToPrevious);

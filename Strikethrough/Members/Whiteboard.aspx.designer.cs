@@ -22,6 +22,15 @@ namespace Strikethrough.Members {
         protected global::System.Web.UI.WebControls.LinkButton LinkButton1;
         
         /// <summary>
+        /// lblHeader control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblHeader;
+        
+        /// <summary>
         /// LoginStatus1 control.
         /// </summary>
         /// <remarks>
@@ -40,15 +49,6 @@ namespace Strikethrough.Members {
         protected global::System.Web.UI.WebControls.Button btnSave;
         
         /// <summary>
-        /// hiddenDataUrl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hiddenDataUrl;
-        
-        /// <summary>
         /// hiddenCanvasId control.
         /// </summary>
         /// <remarks>
@@ -56,5 +56,14 @@ namespace Strikethrough.Members {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputHidden hiddenCanvasId;
+        
+        /// <summary>
+        /// documentJSON control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden documentJSON;
     }
 }

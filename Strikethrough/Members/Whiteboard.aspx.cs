@@ -3,6 +3,7 @@ using System.Data;
 using System.Web;
 using System.Web.Security;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 
 namespace Strikethrough.Members
@@ -45,9 +46,6 @@ namespace Strikethrough.Members
         {
 
         }
-    
-
-
         protected void LinkButton1_Click(object sender, EventArgs e)
         {
             Response.Redirect("/Members/Default.aspx");
