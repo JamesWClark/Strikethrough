@@ -35,7 +35,10 @@
         <span id="totalPages" style="display:inline-block;">1</span>
         <span style="display:inline-block;"><a id="btnAddPage" data-role="button">+</a></span>
         <span style="display:inline-block;"><a id="btnGoToNext" data-role="button">&gt;</a></span>
-        <span style="display:inline-block;"><asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" OnClientClick="setDomCanvasUrls()" /></span>
+        <span style="display:inline-block;">
+            <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" OnClientClick="setDomCanvasUrls()" />
+        </span>
+        <!--<span style="display:inline-block;"><a id="A1" onclick="setDomCanvasUrls()" data-role="button">Save</a></span>-->
     </div>
 </div>
 
@@ -144,7 +147,8 @@
             var dataUrl = canvas.toDataURL();
             data[id] = dataUrl;
         });
-        $('#MainPlaceholder_WhiteboardPlaceholder_documentJSON').val(data);
+        var json = JSON.stringify(data, null, 2);
+        $('#MainPlaceholder_WhiteboardPlaceholder_documentJSON').val(json);
     }
     //events
     $(document).ready(new function () {

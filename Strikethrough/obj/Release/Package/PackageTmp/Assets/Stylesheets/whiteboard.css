@@ -1,12 +1,26 @@
-﻿
-/* check out http://jsbin.com/azivip/2/edit */
-#canvas-container {
-    position:relative;
+﻿canvas {
+    border: solid black 1px;   
 }
-canvas {
-    /* canvas height and width must be set by javascript or by element attribute code */
-    position: absolute;
-    border: solid black 1px;
-    left: 0;
-    top: 0;
+#canvas-container {
+    vertical-align: middle;
+}
+.fit-content, .bottom-footer {
+    position : absolute;
+}
+.fit-content {
+    top : 90px;
+    bottom : 60px;
+    left : 0;
+    right : 0;
+}
+.fit-content > div {
+    height : 100%;
+}
+.bottom-footer {
+    bottom : 0;
+    width : 100%;
+}
+.yellow-bg {
+    /* background-color: yellow; */
+    text-align: center;
 }

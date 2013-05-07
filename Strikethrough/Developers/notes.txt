@@ -1,11 +1,5 @@
-﻿sandra
-becca
-jwclark
-peter
-reba
+﻿cookie timeout for actual mobile app
 
-sandra teaches becca
+delete function for assignment, group, member
 
-becca teaches reba, peter, jwclark
-
-jwclark teaches reba, peter
+decline add member

@@ -32,7 +32,7 @@ namespace Strikethrough.Assets.WebServices
             switch (tableId)
             {
                 case "whiteboard":
-                    string query = "SELECT CanvasId, Label FROM user_Canvas WHERE UserId = '" + userId + "'";
+                    string query = "SELECT DISTINCT DocumentId, Label FROM user_Canvas WHERE UserId = '" + userId + "' ORDER BY Label";
                     return handler.GetDataTable(query);
             }
             return null;

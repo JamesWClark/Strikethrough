@@ -89,6 +89,7 @@
     <Content Include="Assets\WebServices\SystemNetService.asmx" />
     <Content Include="Assets\WebServices\WebControlService.asmx" />
     <Content Include="Default.aspx" />
+    <Content Include="Developers\DynamicJsonNet.aspx" />
     <Content Include="Developers\joe-notes.txt" />
     <Content Include="Developers\Net.aspx" />
     <Content Include="Developers\notes.txt" />
@@ -181,6 +182,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Developers\DynamicJsonNet.aspx.cs">
+      <DependentUpon>DynamicJsonNet.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Developers\DynamicJsonNet.aspx.designer.cs">
+      <DependentUpon>DynamicJsonNet.aspx</DependentUpon>
     </Compile>
     <Compile Include="Developers\Net.aspx.cs">
       <DependentUpon>Net.aspx</DependentUpon>

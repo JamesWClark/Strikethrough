@@ -1,71 +1,188 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Assets/MasterPages/Whiteboard.master" AutoEventWireup="true" CodeBehind="Whiteboard.aspx.cs" Inherits="Strikethrough.Members.Whiteboard" %>
 <%@ OutputCache VaryByParam="*" Duration="60" VaryByCustom="isMobileDevice" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="WhiteboardPlaceholder" runat="server">
-
-    <asp:Button ID="btnSave" data-theme="b" runat="server" Text="Save This Whiteboard" OnClientClick="setHiddenCanvasDataUrl()" OnClick="btnSave_Click" />   
-    <input style="text-align:center;" name="" id="txtCanvasName" placeholder="Name your whiteboard" value="" runat="server" type="text" autocomplete="off" /> 
-    <asp:DropDownList ID="ddlGroups" runat="server"></asp:DropDownList>
-    <h3><asp:RequiredFieldValidator ID="rfvCanvasName" runat="server" ControlToValidate="txtCanvasName" ErrorMessage="This is a required field." SetFocusOnError="True"></asp:RequiredFieldValidator></h3>
-
-    <div id="canvas-container" style="border:solid 1px red">
-        <canvas id="base-canvas" style="z-index: 0;"></canvas>
+<div data-role="header" data-theme="a">
+    <asp:LinkButton data-theme="b" ID="LinkButton1" runat="server" OnClick="LinkButton1_Click" CausesValidation="False">Home</asp:LinkButton>
+    <h1><asp:Label ID="lblHeader" runat="server" Text="Strikethrough"></asp:Label></h1>
+    <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutPageUrl="~/Default.aspx" data-theme="b" LogoutAction="Redirect" />
+    <div style="text-align:center;">
+    <fieldset data-role="controlgroup" data-type="horizontal">
+        <legend></legend>
+        <a id="color1" data-color="#000000" data-tool="marker" data-role="button">Black</a>
+        <a id="color2" data-color="#FF0000" data-tool="marker" data-role="button">Red</a>
+        <a id="color3" data-color="#0080FF" data-tool="marker" data-role="button">Blue</a>
+        <a id="weight1" data-role="button">1</a>
+        <a id="weight2" data-role="button">2</a>
+        <a id="weight3" data-role="button">3</a>
+        <a id="eraser" data-size="35" data-tool="eraser" data-role="button">Erase</a>
+    </fieldset>
     </div>
+</div>
 
-    <h3><asp:Label ID="lblMessage" runat="server" Text=""></asp:Label></h3>
-    <input type="hidden" id="hiddenDataUrl" runat="server" />
+<div data-role="content" class="fit-content">	
+    <div id="canvas-container" class="yellow-bg">        
+        <canvas class="whiteboard" id="canvas1"></canvas>
+    </div>
+</div>
+
+<div data-role="footer" class="bottom-footer">
+    <div id="footer-controls" style="text-align:center;">
+        <span style="display:inline-block;"><a id="btnTrash" data-role="button">Delete</a></span>
+        <span style="display:inline-block;"><a id="btnGoToPrevious" data-role="button">&lt;</a></span>  
+        <span style="display:inline-block;"><a id="btnRemovePage" data-role="button">-</a></span>              
+        <span id="currentPage" style="display:inline-block;">1</span>
+        <span style="display:inline-block;">/</span>        
+        <span id="totalPages" style="display:inline-block;">1</span>
+        <span style="display:inline-block;"><a id="btnAddPage" data-role="button">+</a></span>
+        <span style="display:inline-block;"><a id="btnGoToNext" data-role="button">&gt;</a></span>
+        <span style="display:inline-block;">
+            <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" OnClientClick="setDomCanvasUrls()" />
+        </span>
+        <!--<span style="display:inline-block;"><a id="A1" onclick="setDomCanvasUrls()" data-role="button">Save</a></span>-->
+    </div>
+</div>
+
+<div id="hidden-section" style="visibility:hidden">
     <input type="hidden" id="hiddenCanvasId" runat="server" />
+    <input type="hidden" id="documentJSON" value="" runat="server" />
+</div>
 
-    <script type="text/javascript">
-        var z = 1; //used for z-index. seems unnecessary, but i'm retaining this implementation b/c it's possible that later i will be looping multiple layers.
-        var canvasHeight = 200; //($(window).height() - $(this).find('[data-role="header"]').height() - $(this).find('[data-role="footer"]').height());
-        var canvasWidth = 100;
-        //height tip: http://jsfiddle.net/PQS3A/7/
+<!-- ## SCRIPTS ## -->
+<script type="text/javascript">
+    //variables
+    var divH; //container div height
+    var divW; //container div width
+    var canW; //internal canvas width
+    var canH; //internal canvas height
+    var totalPages;
+    var currentPage;
+    var currentCanvas; //the visible canvas
+    var aspectRatio; // 8.5 divided by 11 (standard letter portrait)
+    var idCount; //the number of times a new canvas is created (important for unique ID)
 
-        $(window).load(new function () {
-            $('#canvas-container').css("width", canvasWidth);
-            $('#canvas-container').css("height", canvasHeight);
-            $('#base-canvas').attr("width", $('#canvas-container').innerWidth);
-            $('#base-canvas').attr("height", $('#canvas-container').innerHeight);
+    //function definitions
+    function fitToContainer(canvas) {
+        canW = divH * aspectRatio;
+        canH;
+        //if canvas is wider than its container
+        if (canW > divW) {
+            canW = divW;
+            canH = divW / aspectRatio;
+        } else {
+            canW = divH * aspectRatio;
+            canH = divH;
+        }
+        canvas.width = canW;
+        canvas.height = canH;
+    }
+    function addPage() {
+        idCount = idCount + 1;
+        totalPages = totalPages + 1;
+        currentPage = totalPages; //set current page to last page
+        updatePageTotals();
+        $('#canvas-container').append('<canvas class="whiteboard" id="canvas' + idCount + '" width="' + canW + '" height="' + canH + '"></canvas>');
+        $('#canvas' + idCount).sketch();
+        currentCanvas = $('.whiteboard').last();
+        goToPage(currentCanvas);
+    }
+    function removePage() {
+        if (currentPage !== 1) {
+            currentPage = currentPage - 1;
+            totalPages = totalPages - 1;
+            updatePageTotals();
+            var prevCanvas = currentCanvas.prev();
+            $(currentCanvas).remove();
+            currentCanvas = prevCanvas;
+            goToPage();
+        }
+    }
+    function goToPrevious() {
+        if (currentPage !== 1) {
+            currentPage = currentPage - 1;
+            updatePageTotals();
+            currentCanvas = currentCanvas.prev();
+            goToPage();
+        }
+    }
+    function goToNext() {
+        if (currentPage !== totalPages) {
+            currentPage = currentPage + 1;
+            updatePageTotals();
+            currentCanvas = currentCanvas.next();
+            goToPage();
+        }
+    }
+    function goToPage() {
+        hidePages(); //hide all pages 
+        $(currentCanvas).show(); //show current page
+        registerButtons();
+    }
+    function hidePages() {
+        //hide all pages
+        $('#canvas-container').children().each(function () {
+            $(this).hide();
         });
-
-        if ($("#MainPlaceholder_MemberPlaceholder_WhiteboardPlaceholder_hiddenDataUrl").attr('value')) {
-            var src = $("#MainPlaceholder_MemberPlaceholder_WhiteboardPlaceholder_hiddenDataUrl").val();
-            loadImage(src);
-            $('#canvas-container').append('<canvas id="layer' + z + '" width="' + canvasWidth + '" height="' + canvasHeight + '" style="z-index: ' + z + ';" ></canvas>');
-            $('#layer' + z + '').sketch();
-        }
-        else {
-            $('#base-canvas').sketch();
-        }
-        function loadImage(src) {
-            var canvas = $('#base-canvas')[0];
-            var context = canvas.getContext('2d');
-            // load image from data url
-            var imageObj = new Image();
-            imageObj.onload = function () {
-                context.drawImage(this, 0, 0);
-            };
-            imageObj.src = src;
-        }
-        //called by whiteboard.aspx.cs code-behind file's button control (onClientClick attribute)
-        function setHiddenCanvasDataUrl() {
-            saveCanvas();
-            var canvas = $("#base-canvas")[0];
+    }
+    function updatePageTotals() {
+        $('#currentPage').text(currentPage);
+        $('#totalPages').text(totalPages);
+    }
+    function registerButtons() {
+        var id = '#' + $(currentCanvas).attr('id');
+        $('#color1').attr('href', id);
+        $('#color2').attr('href', id);
+        $('#color3').attr('href', id);
+        $('#weight1').attr('href', id);
+        $('#weight2').attr('href', id);
+        $('#weight3').attr('href', id);
+        $('#eraser').attr('href', id);
+        $('#weight1').click();
+    }
+    function setDomCanvasUrls() {
+        //pages of the document, parsing to base 64 and storing in DOM for .NET to store in session
+        var data = {};
+        $('#canvas-container').children().each(function () {
+            var canvas = $(this)[0];
+            var id = $(canvas).attr('id');
             var dataUrl = canvas.toDataURL();
-            //this id does not exist by inspection until after the master pages are implemented
-            $("#MainPlaceholder_MemberPlaceholder_WhiteboardPlaceholder_hiddenDataUrl").val(dataUrl);
-        }
-        //this method flattens the canvas layers into one single canvas image before being sent to the database server as a base 64 image text
-        function saveCanvas() {
-            var destinationCanvas = document.getElementById('base-canvas');
-            var destinationContext = destinationCanvas.getContext('2d');
-            $('#canvas-container canvas').each(function () {
-                var sourceCanvas = $(this)[0];
-                destinationContext.drawImage(sourceCanvas, 0, 0);
-                //document.write(this.id);
-            });
-            destinationContext.save();
-            //window.open(destinationCanvas.toDataURL("image/png"), "toDataURL() image", "width=600, height=200");
-        }
-    </script>
+            data[id] = dataUrl;
+        });
+        var json = JSON.stringify(data, null, 2);
+        $('#MainPlaceholder_WhiteboardPlaceholder_documentJSON').val(json);
+    }
+    //events
+    $(document).ready(new function () {
+        //initialize variables
+        divH = $('#canvas-container').height(); //container div height
+        divW = $('#canvas-container').width(); //container div width
+        idCount = 1;
+        totalPages = 1;
+        currentPage = 1;
+        currentCanvas = $('#canvas1');
+        aspectRatio = 0.772727273; // 8.5 divided by 11 (standard letter portrait)
+
+        //canvas and context
+        var canvas = document.querySelector('#canvas1');
+        var ctx = canvas.getContext('2d');
+
+        //set the stage dimensions
+        $('#canvas1').sketch();
+        fitToContainer(canvas);
+
+        //establish relative pen sizes
+        var relativeWeight = divH / 1056; // container height divided by 1056 (11 inches) = relative pen density
+        /* BUG: relative weight needs to adjust to scenario where available height is greater than width of page */
+        /* see method fitToContainer */
+        $('#weight1').attr('data-size', 1 * relativeWeight);
+        $('#weight2').attr('data-size', 4 * relativeWeight);
+        $('#weight3').attr('data-size', 8 * relativeWeight);
+
+        registerButtons();
+    });
+    $('#btnAddPage').click(addPage);
+    $('#btnRemovePage').click(removePage);
+    $('#btnGoToPrevious').click(goToPrevious);
+    $('#btnGoToNext').click(goToNext);
+
+</script>
 </asp:Content>
