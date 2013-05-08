@@ -11,7 +11,7 @@ namespace Strikethrough.Members
 {
     public partial class Default : System.Web.UI.Page
     {
-        string userId = Membership.GetUser().ProviderUserKey.ToString();
+        string userId = Membership.GetUser().ProviderUserKey.ToString();        
 
         protected override void OnInit(EventArgs e)
         {

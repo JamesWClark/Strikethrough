@@ -60,5 +60,24 @@ namespace Strikethrough.Assets.WebServices
                     return pixelWidth / 0.772727273;
             }
         }
+        [WebMethod]
+        public string JsonifyDocument(DataTable table)
+        {
+            string json = String.Empty;
+            if (table.Rows.Count > 0)
+            {
+                int count = 1;
+                json = "{ ";
+                for (int i = 0; i < table.Rows.Count; i++)
+                {
+                    string dataUrl = table.Rows[i].ItemArray[1].ToString();
+                    json += "\"canvas" + count++ + "\": \"" + dataUrl + "\"";
+                    if (i < table.Rows.Count - 1) //if not last row add comma
+                        json += ", ";
+                }
+                json += "}";
+            }
+            return json;
+        }
     }
 }

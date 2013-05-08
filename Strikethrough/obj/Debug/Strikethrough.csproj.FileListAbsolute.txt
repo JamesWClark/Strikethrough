@@ -47,3 +47,5 @@ C:\Users\jwclark\Documents\Git\James\Strikethrough\bin\nunit.framework.xml
 C:\Users\jwclark\Documents\Git\James\Strikethrough\obj\Debug\Strikethrough.csprojResolveAssemblyReference.cache
 C:\Users\jwclark\Documents\Git\James\Strikethrough\obj\Debug\Strikethrough.dll
 C:\Users\jwclark\Documents\Git\James\Strikethrough\obj\Debug\Strikethrough.pdb
+C:\git\James\Strikethrough\bin\Newtonsoft.Json.pdb
+C:\git\James\Strikethrough\bin\Newtonsoft.Json.xml

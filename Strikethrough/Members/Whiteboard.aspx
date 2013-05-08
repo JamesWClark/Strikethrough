@@ -29,10 +29,10 @@
     <div id="footer-controls" style="text-align:center;">
         <span style="display:inline-block;"><a id="btnTrash" data-role="button">Delete</a></span>
         <span style="display:inline-block;"><a id="btnGoToPrevious" data-role="button">&lt;</a></span>  
-        <span style="display:inline-block;"><a id="btnRemovePage" data-role="button">-</a></span>              
-        <span id="currentPage" style="display:inline-block;">1</span>
-        <span style="display:inline-block;">/</span>        
-        <span id="totalPages" style="display:inline-block;">1</span>
+        <span style="display:inline-block;"><a id="btnRemovePage" data-role="button">-</a></span>
+        <span id="currentPage" style="display:inline-block; font-size:large;">1</span>
+        <span style="display:inline-block; font-size:large;">/</span>
+        <span id="totalPages" style="display:inline-block; font-size:large;">1</span>
         <span style="display:inline-block;"><a id="btnAddPage" data-role="button">+</a></span>
         <span style="display:inline-block;"><a id="btnGoToNext" data-role="button">&gt;</a></span>
         <span style="display:inline-block;">
@@ -43,8 +43,15 @@
 </div>
 
 <div id="hidden-section" style="visibility:hidden">
+    <!--
+        edit modes
+        1 - new
+        2 - edit
+        3 - assignment
+    -->
+    <input type="hidden" id="editMode" runat="server" />
     <input type="hidden" id="hiddenCanvasId" runat="server" />
-    <input type="hidden" id="documentJSON" value="" runat="server" />
+    <input type="hidden" id="documentJSON" runat="server" />
 </div>
 
 <!-- ## SCRIPTS ## -->
@@ -61,16 +68,17 @@
     var idCount; //the number of times a new canvas is created (important for unique ID)
 
     //function definitions
+    //ideally wouldn't have to subtract 40 here, but i'm experiencing a problem with the height by about this margin (probably related to master css font-size in footer
     function fitToContainer(canvas) {
         canW = divH * aspectRatio;
         canH;
         //if canvas is wider than its container
         if (canW > divW) {
             canW = divW;
-            canH = divW / aspectRatio;
+            canH = divW / aspectRatio - 30;
         } else {
             canW = divH * aspectRatio;
-            canH = divH;
+            canH = divH - 30;
         }
         canvas.width = canW;
         canvas.height = canH;
@@ -150,6 +158,24 @@
         var json = JSON.stringify(data, null, 2);
         $('#MainPlaceholder_WhiteboardPlaceholder_documentJSON').val(json);
     }
+    function loadCanvas(value) {
+        totalPages = totalPages + 1;
+        updatePageTotals();
+
+        $('#canvas-container').append('<canvas class="whiteboard" id="canvas' + idCount + '" width="' + canW + '" height="' + canH + '" style="display: none;"></canvas>');
+        var canvas = document.querySelector('#canvas' + idCount);
+        var context = canvas.getContext('2d');
+        // load image from data url
+        var imageObj = new Image();
+        imageObj.onload = function () {
+            context.drawImage(this, 0, 0);
+        };
+        imageObj.src = value;
+
+        $('#canvas' + idCount).sketch();
+
+        idCount = idCount + 1;
+    }
     //events
     $(document).ready(new function () {
         //initialize variables
@@ -158,21 +184,47 @@
         idCount = 1;
         totalPages = 1;
         currentPage = 1;
-        currentCanvas = $('#canvas1');
         aspectRatio = 0.772727273; // 8.5 divided by 11 (standard letter portrait)
+        var relativeWeight = divH / 1056; // relative pen size = container height divided by 1056 (11 inches) = relative pen density
 
         //canvas and context
         var canvas = document.querySelector('#canvas1');
         var ctx = canvas.getContext('2d');
 
         //set the stage dimensions
-        $('#canvas1').sketch();
         fitToContainer(canvas);
+        $('#canvas1').sketch();
+        currentCanvas = $('#canvas1');
 
-        //establish relative pen sizes
-        var relativeWeight = divH / 1056; // container height divided by 1056 (11 inches) = relative pen density
-        /* BUG: relative weight needs to adjust to scenario where available height is greater than width of page */
-        /* see method fitToContainer */
+
+        //check edit mode of document
+        var attr = $('#MainPlaceholder_WhiteboardPlaceholder_editMode').attr('value');
+        if (attr !== 'undefined' && attr !== false) { //has edit mode
+            switch (attr) {
+                //new
+                case '1':
+                    break;
+                //edit
+                case '2':
+                    $('#canvas1').remove();
+                    totalPages = 0;
+                    var json = $('#MainPlaceholder_WhiteboardPlaceholder_documentJSON').val();
+                    $.each($.parseJSON(json), function (key, value) {
+                        loadCanvas(value);
+                    });
+                    currentCanvas = $('.whiteboard').first();
+                    goToPage();
+                    break;
+            }
+
+        } else { //no edit mode
+            document.write('no edit mode attribute');
+        }
+        
+
+
+        //BUG: relative weight needs to adjust to scenario where available height is greater than width of page
+        // see method fitToContainer
         $('#weight1').attr('data-size', 1 * relativeWeight);
         $('#weight2').attr('data-size', 4 * relativeWeight);
         $('#weight3').attr('data-size', 8 * relativeWeight);

@@ -14,7 +14,6 @@ namespace Strikethrough
             base.OnInit(e);
             if (User.Identity.IsAuthenticated == true)
                 Response.Redirect("~/Members/Default.aspx");
-
         }
         protected void Page_Load(object sender, EventArgs e)
         {

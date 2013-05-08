@@ -9,18 +9,22 @@ using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using Strikethrough.Assets.WebServices;
 
 namespace Strikethrough.Members
 {
     public partial class Whiteboard : System.Web.UI.Page
     {
+        private string userId = Membership.GetUser().ProviderUserKey.ToString();
         private string key;
         private string value;
+        private DataHandler handler = new DataHandler();
+        private CanvasService canvasService = new CanvasService();
 
         /*
-        private string userId = Membership.GetUser().ProviderUserKey.ToString();
+        
         //web service
-        private Assets.WebServices.DataHandler db = new Assets.WebServices.DataHandler();
+        
         private Assets.WebServices.GroupService service = new Assets.WebServices.GroupService();
 
         protected override void OnInit(EventArgs e)
@@ -52,10 +56,10 @@ namespace Strikethrough.Members
               */
         protected override void OnInit(EventArgs e)
         {
-            key = (string)Session["Key"];
-            value = (string)Session["Value"];
-            if (key != String.Empty)
+            if (Session["Key"] != null) //key exists - document loading
             {
+                key = (string)Session["Key"];
+                value = (string)Session["Value"];
                 LoadDocument();
             }
         }
@@ -75,7 +79,17 @@ namespace Strikethrough.Members
         private void LoadDocument()
         {
             lblHeader.Text = key;
-
+            string select =
+                "SELECT DocumentId, DataUrl, Page " +
+                "FROM user_Canvas " +
+                "WHERE UserId = '" + userId + "' " +
+                "AND DocumentId = '" + value + "' " +
+                "ORDER BY Page";
+            DataTable table = handler.GetDataTable(select);
+            string json = canvasService.JsonifyDocument(table);
+            documentJSON.Value = json;
+            editMode.Value = "2";
         }
+        
     }
 }
