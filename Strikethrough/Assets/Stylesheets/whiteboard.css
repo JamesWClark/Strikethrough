@@ -1,5 +1,7 @@
 ﻿canvas {
-    border: solid black 1px;   
+    border: solid black 1px;
+    position:absolute;
+    left: 50%;
 }
 #canvas-container {
     vertical-align: middle;

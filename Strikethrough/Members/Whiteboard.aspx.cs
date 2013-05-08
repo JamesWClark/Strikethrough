@@ -58,16 +58,24 @@ namespace Strikethrough.Members
         {
             if (Session["Key"] != null) //key exists - document loading
             {
+                Session["DocumentMode"] = "update";
+                btnSave.Text = "Update";
                 key = (string)Session["Key"];
                 value = (string)Session["Value"];
                 LoadDocument();
+            }
+            else
+            {
+                Session["DocumentMode"] = "create";
+                btnSave.Text = "Save";
+                editMode.Value = "1";
             }
         }
         protected void btnSave_Click(object sender, EventArgs e)
         {
             string json = documentJSON.Value; //javascript parses the canvas pages into a json object of dataurls (stored in the DOM as hidden value)
             
-            Session["DocumentMode"] = "create";
+            
             Session["Document"] = json;
             
             Response.Redirect("SaveCanvas.aspx");

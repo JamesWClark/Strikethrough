@@ -35,10 +35,10 @@
         <span id="totalPages" style="display:inline-block; font-size:large;">1</span>
         <span style="display:inline-block;"><a id="btnAddPage" data-role="button">+</a></span>
         <span style="display:inline-block;"><a id="btnGoToNext" data-role="button">&gt;</a></span>
-        <span style="display:inline-block;">
-            <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" OnClientClick="setDomCanvasUrls()" />
-        </span>
-        <!--<span style="display:inline-block;"><a id="A1" onclick="setDomCanvasUrls()" data-role="button">Save</a></span>-->
+        <!--<span style="display:inline-block;">
+            <asp:Button ID="btnSave" runat="server" OnClick="btnSave_Click" OnClientClick="setDomCanvasUrls()" />
+        </span>-->
+        <span style="display:inline-block;"><a id="A1" onclick="setDomCanvasUrls()" data-role="button">Save</a></span>
     </div>
 </div>
 
@@ -66,6 +66,7 @@
     var currentCanvas; //the visible canvas
     var aspectRatio; // 8.5 divided by 11 (standard letter portrait)
     var idCount; //the number of times a new canvas is created (important for unique ID)
+    var editMode; //state of the document
 
     //function definitions
     //ideally wouldn't have to subtract 40 here, but i'm experiencing a problem with the height by about this margin (probably related to master css font-size in footer
@@ -82,6 +83,7 @@
         }
         canvas.width = canW;
         canvas.height = canH;
+        centerPage();
     }
     function addPage() {
         idCount = idCount + 1;
@@ -98,9 +100,23 @@
             currentPage = currentPage - 1;
             totalPages = totalPages - 1;
             updatePageTotals();
-            var prevCanvas = currentCanvas.prev();
-            $(currentCanvas).remove();
-            currentCanvas = prevCanvas;
+
+            switch (editMode) {
+                case '1':
+                    var prevCanvas = $(currentCanvas).prev();
+                    $(currentCanvas).remove();
+                    currentCanvas = prevCanvas;
+                    break;
+                case '2':
+                    var prevCanvas = $(currentCanvas).prev(); //get id of previous canvas
+                    var prevId = $(prevCanvas).attr('id');
+                    if (prevId.charAt(prevId.length - 1) === 'e') //if previous id ends with 'e', get another previous
+                        prevCanvas = $(prevCanvas).prev();
+                    var id = $(currentCanvas).attr('id'); 
+                    $('canvas[id^="' + id + '"]').remove(); //delete with ID like example: canvas1, canvas1e
+                    currentCanvas = prevCanvas;
+                    break;
+            }
             goToPage();
         }
     }
@@ -108,7 +124,17 @@
         if (currentPage !== 1) {
             currentPage = currentPage - 1;
             updatePageTotals();
-            currentCanvas = currentCanvas.prev();
+            switch (editMode) {
+                case '1':
+                    currentCanvas = $(currentCanvas).prev();
+                    break;
+                case '2':
+                    currentCanvas = $(currentCanvas).prev(); //get id of previous canvas
+                    var id = $(currentCanvas).attr('id');
+                    if (id.charAt(id.length - 1) === 'e') //if previous id ends with 'e', get another previous
+                        currentCanvas = $(currentCanvas).prev();
+                    break;
+            }
             goToPage();
         }
     }
@@ -116,13 +142,32 @@
         if (currentPage !== totalPages) {
             currentPage = currentPage + 1;
             updatePageTotals();
-            currentCanvas = currentCanvas.next();
+            switch (editMode) {
+                case '1':
+                    currentCanvas = currentCanvas.next();
+                    break;
+                case '2':
+                    currentCanvas = $(currentCanvas).next(); //get id of previous canvas
+                    var id = $(currentCanvas).attr('id');
+                    if (id.charAt(id.length - 1) === 'e') //if previous id ends with 'e', get another previous
+                        currentCanvas = $(currentCanvas).next();
+                    break;
+            }
             goToPage();
         }
     }
     function goToPage() {
-        hidePages(); //hide all pages 
-        $(currentCanvas).show(); //show current page
+        hidePages(); //hide all pages
+        var id = $(currentCanvas).attr('id');
+        switch (editMode) {
+            case '1':
+                $(currentCanvas).show(); //show current page
+                break;
+            case '2':
+                $('canvas[id^="' + id + '"]').show(); //show current page and background (elements with id like canvas1, canvas2, etc...
+                break;
+        }
+        centerPage();
         registerButtons();
     }
     function hidePages() {
@@ -130,6 +175,10 @@
         $('#canvas-container').children().each(function () {
             $(this).hide();
         });
+    }
+    function centerPage() {
+        var id = $(currentCanvas).attr('id');
+        $('canvas[id^="' + id + '"]').css('margin-left', canW / -2); //centers the canvas
     }
     function updatePageTotals() {
         $('#currentPage').text(currentPage);
@@ -149,22 +198,49 @@
     function setDomCanvasUrls() {
         //pages of the document, parsing to base 64 and storing in DOM for .NET to store in session
         var data = {};
-        $('#canvas-container').children().each(function () {
-            var canvas = $(this)[0];
-            var id = $(canvas).attr('id');
-            var dataUrl = canvas.toDataURL();
-            data[id] = dataUrl;
-        });
+        switch (editMode) {
+            case '1':
+                $('#canvas-container').children().each(function () {
+                    var canvas = $(this)[0];
+                    var id = $(canvas).attr('id');
+                    var dataUrl = canvas.toDataURL();
+                    data[id] = dataUrl;
+                });
+                break;
+            case '2':
+                $('#canvas-container').children().each(function () {
+                    var canvas = $(this)[0];
+                    var id = $(canvas).attr('id'); //got an ID
+                    if (id.charAt(id.length - 1) === 'e') { //ends with 'e' : it's a background
+                        //skip processing this
+                    } else { //look for a background
+                        var background = $('#' + id + 'e'); //look for the same ID with 'e' at the end
+                        if (background !== 'undefined' && background !== false) {//background found
+                            var destinationCanvas = background;
+                            var destinationContext = background.getContext('2d');
+                            var sourceCanvas = canvas;
+                            destinationContext.drawImage(sourceCanvas, 0, 0);
+                            destinationContext.save();
+                            var dataUrl = destinationCanvas.toDataURL();
+                            data[id] = dataUrl;
+                        }
+                    }
+                });
+                break;
+        }
         var json = JSON.stringify(data, null, 2);
         $('#MainPlaceholder_WhiteboardPlaceholder_documentJSON').val(json);
     }
     function loadCanvas(value) {
         totalPages = totalPages + 1;
         updatePageTotals();
-
-        $('#canvas-container').append('<canvas class="whiteboard" id="canvas' + idCount + '" width="' + canW + '" height="' + canH + '" style="display: none;"></canvas>');
-        var canvas = document.querySelector('#canvas' + idCount);
+        var foregroundId = "canvas" + idCount; //the active writing layer
+        var backgroundId = foregroundId + "e"; //i want different but similar IDs here, because they represent one page in a document
+        $('#canvas-container').append('<canvas class="whiteboard" id="' + foregroundId + '" width="' + canW + '" height="' + canH + '" style="display: none; z-index: 1;"></canvas>'); //foreground
+        $('#canvas-container').append('<canvas class="whiteboard" id="' + backgroundId + '" width="' + canW + '" height="' + canH + '" style="display: none; z-index: 0;"></canvas>'); //background
+        var canvas = document.querySelector('#' + backgroundId); //reference to background
         var context = canvas.getContext('2d');
+
         // load image from data url
         var imageObj = new Image();
         imageObj.onload = function () {
@@ -172,9 +248,8 @@
         };
         imageObj.src = value;
 
-        $('#canvas' + idCount).sketch();
-
-        idCount = idCount + 1;
+        idCount = idCount + 1; //maintain unique IDs always
+        $('#' + foregroundId).sketch(); //add drawing to foreground layer
     }
     //events
     $(document).ready(new function () {
@@ -192,14 +267,14 @@
         var ctx = canvas.getContext('2d');
 
         //set the stage dimensions
+        currentCanvas = $('#canvas1');
         fitToContainer(canvas);
         $('#canvas1').sketch();
-        currentCanvas = $('#canvas1');
-
 
         //check edit mode of document
         var attr = $('#MainPlaceholder_WhiteboardPlaceholder_editMode').attr('value');
         if (attr !== 'undefined' && attr !== false) { //has edit mode
+            editMode = attr;
             switch (attr) {
                 //new
                 case '1':
@@ -216,9 +291,6 @@
                     goToPage();
                     break;
             }
-
-        } else { //no edit mode
-            document.write('no edit mode attribute');
         }
         
 
