@@ -16,7 +16,7 @@ namespace Strikethrough.Members
         protected override void OnInit(EventArgs e)
         {
             base.OnInit(e);
-            Session.Clear();
+            Session.RemoveAll();
             WebControlService wcs = new WebControlService();
 
             //Groups

@@ -17,8 +17,6 @@ C:\Users\JWC\Documents\GitHub\Strikethrough\Strikethrough\obj\Release\Strikethro
 C:\git\James\Strikethrough\bin\Strikethrough.dll
 C:\git\James\Strikethrough\bin\Strikethrough.pdb
 C:\git\James\Strikethrough\bin\nunit.framework.dll
-C:\git\James\Strikethrough\bin\Newtonsoft.Json.pdb
-C:\git\James\Strikethrough\bin\Newtonsoft.Json.xml
 C:\git\James\Strikethrough\bin\nunit.framework.xml
 C:\git\James\Strikethrough\obj\Release\Strikethrough.csprojResolveAssemblyReference.cache
 C:\git\James\Strikethrough\obj\Release\Strikethrough.dll

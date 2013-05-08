@@ -29,8 +29,22 @@ namespace Strikethrough.Members
                 case "create":
                     CreateDocument();
                     break;
+                case "update":
+                    UpdateDocument();
+                    break;
             }
             Response.Redirect("~/Members/Default.aspx");
+        }
+        private void UpdateDocument()
+        {
+            DeleteDocument();
+            CreateDocument();
+        }
+        private void DeleteDocument()
+        {
+            string documentId = (string)Session["Value"];
+            string delete = "DELETE FROM user_Canvas WHERE DocumentId = '" + documentId + "'";
+            handler.ExecuteNonQuery(delete);
         }
         private void CreateDocument()
         {
@@ -40,7 +54,7 @@ namespace Strikethrough.Members
             IList<string> jsonKeys = pages.Properties().Select(p => p.Name).ToList(); // with dynamic keys retrieved
             string[] jsonValues = new string[jsonKeys.Count]; // to access values for an array
 
-            string documentId = Guid.NewGuid().ToString();
+            string documentId = Guid.NewGuid().ToString(); //new document, new ID!
             string label = txtDocName.Value;
             for (int i = 0; i < jsonKeys.Count; i++)
             {
@@ -51,7 +65,7 @@ namespace Strikethrough.Members
                     "VALUES('" + canvasId + "','" + documentId + "','" + userId + "','" + dataUrl + "','" + label + "'," + (i + 1) + ")";
                 handler.ExecuteNonQuery(insert);
             }
-            Session["global-message"] = "Your work was successfully saved.";
+            Session["global-message"] = "Document successfully saved.";
         }
     }
 }

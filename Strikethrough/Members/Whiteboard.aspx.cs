@@ -59,6 +59,7 @@ namespace Strikethrough.Members
             if (Session["Key"] != null) //key exists - document loading
             {
                 Session["DocumentMode"] = "update";
+                editMode.Value = "2";
                 btnSave.Text = "Update";
                 key = (string)Session["Key"];
                 value = (string)Session["Value"];
@@ -67,15 +68,14 @@ namespace Strikethrough.Members
             else
             {
                 Session["DocumentMode"] = "create";
-                btnSave.Text = "Save";
                 editMode.Value = "1";
+                btnSave.Text = "Save";
             }
         }
         protected void btnSave_Click(object sender, EventArgs e)
         {
             string json = documentJSON.Value; //javascript parses the canvas pages into a json object of dataurls (stored in the DOM as hidden value)
-            
-            
+
             Session["Document"] = json;
             
             Response.Redirect("SaveCanvas.aspx");
@@ -96,7 +96,6 @@ namespace Strikethrough.Members
             DataTable table = handler.GetDataTable(select);
             string json = canvasService.JsonifyDocument(table);
             documentJSON.Value = json;
-            editMode.Value = "2";
         }
         
     }

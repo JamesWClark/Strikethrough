@@ -35,10 +35,10 @@
         <span id="totalPages" style="display:inline-block; font-size:large;">1</span>
         <span style="display:inline-block;"><a id="btnAddPage" data-role="button">+</a></span>
         <span style="display:inline-block;"><a id="btnGoToNext" data-role="button">&gt;</a></span>
-        <!--<span style="display:inline-block;">
+        <span style="display:inline-block;">
             <asp:Button ID="btnSave" runat="server" OnClick="btnSave_Click" OnClientClick="setDomCanvasUrls()" />
-        </span>-->
-        <span style="display:inline-block;"><a id="A1" onclick="setDomCanvasUrls()" data-role="button">Save</a></span>
+        </span>
+        <!--<span style="display:inline-block;"><a id="A1" onclick="setDomCanvasUrls()" data-role="button">Save</a></span>-->
     </div>
 </div>
 
@@ -208,20 +208,26 @@
                 });
                 break;
             case '2':
+                //stack canvases into single image
                 $('#canvas-container').children().each(function () {
                     var canvas = $(this)[0];
                     var id = $(canvas).attr('id'); //got an ID
-                    if (id.charAt(id.length - 1) === 'e') { //ends with 'e' : it's a background
-                        //skip processing this
-                    } else { //look for a background
-                        var background = $('#' + id + 'e'); //look for the same ID with 'e' at the end
-                        if (background !== 'undefined' && background !== false) {//background found
-                            var destinationCanvas = background;
-                            var destinationContext = background.getContext('2d');
-                            var sourceCanvas = canvas;
-                            destinationContext.drawImage(sourceCanvas, 0, 0);
-                            destinationContext.save();
-                            var dataUrl = destinationCanvas.toDataURL();
+                    if (id.charAt(id.length - 1) !== 'e') { //not a background - id does not end with 'e'
+                        //look for a background
+                        var background = document.getElementById(id + 'e'); //look for the same ID with 'e' at the end
+                        if (background !== 'undefined' && background !== false && background !== null) { //background exists
+                            //stack into one canvas
+                            var context = background.getContext('2d');
+                            context.drawImage(canvas, 0, 0);
+                            context.save();
+                            var dataUrl = background.toDataURL();
+                            data[id] = dataUrl;
+                        }
+                        else { //background does not exist, so process the foreground only
+                            var target = document.getElementById(id);
+                            var context = target.getContext('2d');
+                            context.save();
+                            var dataUrl = target.toDataURL();
                             data[id] = dataUrl;
                         }
                     }
@@ -244,7 +250,7 @@
         // load image from data url
         var imageObj = new Image();
         imageObj.onload = function () {
-            context.drawImage(this, 0, 0);
+            context.drawImage(this, 0, 0, canW, canH);
         };
         imageObj.src = value;
 
