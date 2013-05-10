@@ -8,27 +8,19 @@
 
     <div>
         <div data-theme="a" data-role="header">
-            <h3>
-                Strikethrough
-            </h3>
+            <asp:LinkButton data-theme="b" ID="LinkButton1" runat="server" OnClick="LinkButton1_Click" CausesValidation="False">Home</asp:LinkButton>
+            <h1>Strikethrough</h1>
+            <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutPageUrl="~/Default.aspx" data-theme="b" LogoutAction="Redirect" />
+            <!-- <a href="#" data-icon="gear" class="ui-btn-right">Options</a>  -->
         </div>
+
         <div data-role="content">
-            <div>
-                <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutPageUrl="~/Default.aspx" LogoutAction="Redirect" />
-                <br />
-                <br />
-                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Members/Groups/GroupManager.aspx">Group Manager</asp:HyperLink>            
-                <br />
-                <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/Members/Whiteboard.aspx">Whiteboard</asp:HyperLink>
-            </div>
-            <br />
             <asp:ContentPlaceHolder ID="MemberPlaceholder" runat="server">
             </asp:ContentPlaceHolder>
         </div>
+
         <div data-theme="a" data-role="footer" data-position="fixed">
-            <h3>
-                A Whiteboard Application
-            </h3>
+            <h3>A Whiteboard Application</h3>
         </div>
     </div>
 

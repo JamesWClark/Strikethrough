@@ -1,8 +1,8 @@
-﻿<%@ Master Language="C#" MasterPageFile="~/Assets/MasterPages/Member.master" AutoEventWireup="true" CodeBehind="Whiteboard.master.cs" Inherits="Strikethrough.Assets.MasterPages.Whiteboard" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="MemberHead" runat="server">
+﻿<%@ Master Language="C#" MasterPageFile="~/Assets/MasterPages/Master.Master" AutoEventWireup="true" CodeBehind="Whiteboard.master.cs" Inherits="Strikethrough.Assets.MasterPages.Whiteboard" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script src="../Assets/Scripts/sketch.js"></script>
     <link href="../Assets/Stylesheets/whiteboard.css" rel="stylesheet" />
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="MemberPlaceholder" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="MainPlaceholder" runat="server">
     <asp:ContentPlaceHolder ID="WhiteboardPlaceholder" runat="server"></asp:ContentPlaceHolder>
 </asp:Content>

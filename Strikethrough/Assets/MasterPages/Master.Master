@@ -6,6 +6,8 @@
     <title>Strikethrough: A Whiteboard Application</title>
     <link href="/Assets/Stylesheets/master.css" rel="stylesheet" />
 
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1" />
+
     <!-- -->
         <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.css" />
         <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Web;
+using System.Web.Script.Services;
 using System.Web.Services;
 using System.Web.UI;
 using Strikethrough.Assets.WebServices;
@@ -31,10 +32,52 @@ namespace Strikethrough.Assets.WebServices
             switch (tableId)
             {
                 case "whiteboard":
-                    string query = "SELECT CanvasId, Label FROM user_Canvas WHERE UserId = '" + userId + "'";
+                    string query = "SELECT DISTINCT DocumentId, Label FROM user_Canvas WHERE UserId = '" + userId + "' ORDER BY Label";
                     return handler.GetDataTable(query);
             }
             return null;
+        }
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public double GetRelativeWidth(int pixelHeight, string paperType)
+        {
+            switch (paperType)
+            {
+                case "letter":
+                    return 0.772727273 * pixelHeight;
+                default:
+                    return 0.772727273 * pixelHeight;
+            }
+        }
+        [WebMethod]
+        public double GetRelativeHeight(int pixelWidth, string paperType)
+        {
+            switch (paperType)
+            {
+                case "letter":
+                    return pixelWidth / 0.772727273;
+                default:
+                    return pixelWidth / 0.772727273;
+            }
+        }
+        [WebMethod]
+        public string JsonifyDocument(DataTable table)
+        {
+            string json = String.Empty;
+            if (table.Rows.Count > 0)
+            {
+                int count = 1;
+                json = "{ ";
+                for (int i = 0; i < table.Rows.Count; i++)
+                {
+                    string dataUrl = table.Rows[i].ItemArray[1].ToString();
+                    json += "\"canvas" + count++ + "\": \"" + dataUrl + "\"";
+                    if (i < table.Rows.Count - 1) //if not last row add comma
+                        json += ", ";
+                }
+                json += "}";
+            }
+            return json;
         }
     }
 }

@@ -76,7 +76,9 @@
     <Content Include="Assets\Scripts\jquery.mobile-1.3.0.min.js" />
     <Content Include="Assets\Scripts\jquery.mobile.structure-1.3.0.min.css" />
     <Content Include="Assets\Scripts\jquery.mobile.theme-1.3.0.min.css" />
+    <Content Include="Assets\Scripts\sketch.js" />
     <Content Include="Assets\Scripts\sketch.min.js" />
+    <Content Include="Assets\Scripts\strikethrough-whiteboard.js" />
     <Content Include="Assets\Stylesheets\master.css" />
     <Content Include="Assets\Stylesheets\member.css" />
     <Content Include="Assets\Stylesheets\whiteboard.css" />
@@ -87,8 +89,8 @@
     <Content Include="Assets\WebServices\SystemNetService.asmx" />
     <Content Include="Assets\WebServices\WebControlService.asmx" />
     <Content Include="Default.aspx" />
+    <Content Include="Developers\DynamicJsonNet.aspx" />
     <Content Include="Developers\joe-notes.txt" />
-    <Content Include="Developers\Landing.aspx" />
     <Content Include="Developers\Net.aspx" />
     <Content Include="Developers\notes.txt" />
     <Content Include="error.jpg" />
@@ -101,6 +103,7 @@
     <Content Include="Members\Groups\Group.aspx" />
     <Content Include="Members\Groups\GroupManager.aspx" />
     <Content Include="Members\Groups\AddStudents.aspx" />
+    <Content Include="Members\SaveCanvas.aspx" />
     <Content Include="Members\Whiteboard.aspx" />
     <Content Include="Account\Register.aspx" />
     <Content Include="Properties\Settings.settings">
@@ -180,12 +183,12 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Developers\Landing.aspx.cs">
-      <DependentUpon>Landing.aspx</DependentUpon>
+    <Compile Include="Developers\DynamicJsonNet.aspx.cs">
+      <DependentUpon>DynamicJsonNet.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Developers\Landing.aspx.designer.cs">
-      <DependentUpon>Landing.aspx</DependentUpon>
+    <Compile Include="Developers\DynamicJsonNet.aspx.designer.cs">
+      <DependentUpon>DynamicJsonNet.aspx</DependentUpon>
     </Compile>
     <Compile Include="Developers\Net.aspx.cs">
       <DependentUpon>Net.aspx</DependentUpon>
@@ -194,6 +197,7 @@
     <Compile Include="Developers\Net.aspx.designer.cs">
       <DependentUpon>Net.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Developers\NUnit\Test-WebService-CanvasService.cs" />
     <Compile Include="Developers\NUnit\Test-WebService-SystemNetService.cs" />
     <Compile Include="ErrorPage.aspx.cs">
       <DependentUpon>ErrorPage.aspx</DependentUpon>
@@ -253,6 +257,13 @@
     </Compile>
     <Compile Include="Members\Groups\AddStudents.aspx.designer.cs">
       <DependentUpon>AddStudents.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Members\SaveCanvas.aspx.cs">
+      <DependentUpon>SaveCanvas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Members\SaveCanvas.aspx.designer.cs">
+      <DependentUpon>SaveCanvas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Members\Whiteboard.aspx.cs">
       <DependentUpon>Whiteboard.aspx</DependentUpon>
