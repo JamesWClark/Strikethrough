@@ -197,6 +197,7 @@
     <Compile Include="Developers\Net.aspx.designer.cs">
       <DependentUpon>Net.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Developers\NUnit\Test-WebService-CanvasService.cs" />
     <Compile Include="Developers\NUnit\Test-WebService-SystemNetService.cs" />
     <Compile Include="ErrorPage.aspx.cs">
       <DependentUpon>ErrorPage.aspx</DependentUpon>

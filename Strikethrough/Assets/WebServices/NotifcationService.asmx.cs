@@ -12,18 +12,18 @@ namespace Strikethrough.Assets.WebServices
     /// <summary>
     /// Summary description for NotifcationService
     /// </summary>
-    [WebService(Namespace = "vhost0165.site1.compute.ihost.com")]
+    [WebService(Namespace = "vhost0165.site1.compute.ihost.com/notifcation")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     [System.ComponentModel.ToolboxItem(false)]
     // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
     // [System.Web.Script.Services.ScriptService]
     public class NotifcationService : System.Web.Services.WebService
     {
-        DataHandler handler;
-
         [WebMethod]
         public PlaceHolder BuildNotifications(string userId)
         {
+            DataHandler handler = new DataHandler();
+
             string query;
             PlaceHolder ph = new PlaceHolder();
             DataTable[] tables = new DataTable[2];
