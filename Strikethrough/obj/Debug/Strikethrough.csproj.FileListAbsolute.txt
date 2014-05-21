@@ -47,3 +47,10 @@ C:\git\James\Strikethrough\bin\nunit.framework.xml
 C:\git\James\Strikethrough\obj\Debug\Strikethrough.dll
 C:\git\James\Strikethrough\obj\Debug\Strikethrough.pdb
 C:\git\James\Strikethrough\obj\Debug\Strikethrough.csprojResolveAssemblyReference.cache
+C:\LocalStorage\Strikethrough\Strikethrough\bin\Strikethrough.dll
+C:\LocalStorage\Strikethrough\Strikethrough\bin\Strikethrough.pdb
+C:\LocalStorage\Strikethrough\Strikethrough\bin\nunit.framework.dll
+C:\LocalStorage\Strikethrough\Strikethrough\bin\nunit.framework.xml
+C:\LocalStorage\Strikethrough\Strikethrough\obj\Debug\Strikethrough.csprojResolveAssemblyReference.cache
+C:\LocalStorage\Strikethrough\Strikethrough\obj\Debug\Strikethrough.dll
+C:\LocalStorage\Strikethrough\Strikethrough\obj\Debug\Strikethrough.pdb
